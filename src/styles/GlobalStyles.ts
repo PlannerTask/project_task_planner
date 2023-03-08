@@ -7,7 +7,7 @@ export const GlobalStyles = createGlobalStyle`
     
     --color-secondary:#E20000;
 
-    --color-white-:#FFFFFF;
+    --color-white:#FFFFFF;
 
     --color-grey-0:#F5F5F5;
     --color-grey-300:#4E5056;
@@ -19,6 +19,8 @@ export const GlobalStyles = createGlobalStyle`
     --color-warning:#FFCD07;
     --color-information:#155BCB;
     
+    --radius-default:8px;
+
     --font-text-default:'Inter', sans-serif;
     --title-size-1:2rem;
     --title-size-2:1.125rem;
