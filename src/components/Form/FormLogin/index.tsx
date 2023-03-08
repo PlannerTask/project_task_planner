@@ -9,7 +9,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { StyledFormLogin } from "./style";
 
 const schema = yup.object({
-    
     email: yup
       .string()
       .email('Insira um email válido')
