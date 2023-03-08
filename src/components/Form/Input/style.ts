@@ -31,4 +31,10 @@ export const StyledDivInput = styled.div`
   input::placeholder {
     color: var(--color-grey-300);
   }
+  @media (min-width: 769px){
+    width:fit-content;
+    input{
+      width:314px;
+    }
+  }
 `;
