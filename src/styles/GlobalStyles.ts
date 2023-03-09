@@ -29,4 +29,7 @@ export const GlobalStyles = createGlobalStyle`
     --text-size-default:1rem;
     --text-size-small:0.875rem;
   }
+  body{
+    background-color:#181920;
+  }
 `

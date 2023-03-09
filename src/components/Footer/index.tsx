@@ -1,10 +1,11 @@
 import React from "react";
+import { StyledFooter } from "./style";
 
 const Footer = () => {
   return (
-    <footer>
+    <StyledFooter>
       <p>Task Planner @all rights reserved</p>
-    </footer>
+    </StyledFooter>
   );
 };
 

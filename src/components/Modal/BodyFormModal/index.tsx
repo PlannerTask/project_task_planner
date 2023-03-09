@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { SubmitHandler } from "react-hook-form/dist/types";
 import { TaskContext } from "../../../Providers/TaskContext";
 import { Input } from "../../Form/Input";
+import { StyledFormModal } from "./style";
 
 interface IBodyModal {
   nameBtn: string;
@@ -31,7 +32,7 @@ const index = ({ nameBtn, onClose, func, id }: IBodyModal) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
+    <StyledFormModal onSubmit={handleSubmit(submit)}>
       <Input
         id="Title"
         type="text"
@@ -46,11 +47,15 @@ const index = ({ nameBtn, onClose, func, id }: IBodyModal) => {
         placeholder="Description"
         {...register("description")}
       ></textarea>
-      <div>
-        <button type="submit">{nameBtn}</button>
-        <button onClick={() => onClose}>Cancel</button>
+      <div className="btnArea">
+        <button className="green" type="submit">
+          {nameBtn}
+        </button>
+        <button className="cancel" onClick={() => onClose}>
+          Cancel
+        </button>
       </div>
-    </form>
+    </StyledFormModal>
   );
 };
 

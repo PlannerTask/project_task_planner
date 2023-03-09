@@ -1,15 +1,18 @@
 import { useState } from 'react'
+import { UserProvider } from './Providers/UserContext'
 import { Router } from './routes'
 
 
-function App() {
-  const [count, setCount] = useState(0)
+export const App=()=> {
+
 
   return (
     <div className="App">
+      <UserProvider>
       <Router/>
+      </UserProvider>
     </div>
   )
 }
 
-export default App
+

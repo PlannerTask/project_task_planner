@@ -2,6 +2,7 @@ import React from "react";
 import { StyledModal } from "./BackgroundModal/style";
 import BodyFormModal from "./BodyFormModal";
 import HeaderModal from "./HeaderModal";
+import { StyledDialog } from "./style";
 
 interface IModal {
   isOpen: string;
@@ -16,10 +17,10 @@ const CreateModal = ({ isOpen, onClose }: IModal) => {
   return (
     <div>
       <StyledModal onClick={() => onClose()} />
-      <dialog open>
+      <StyledDialog open>
         <HeaderModal title="Create Task" onClose={onClose} />
         <BodyFormModal nameBtn="Create" onClose={onClose} func="create" id="" />
-      </dialog>
+      </StyledDialog>
     </div>
   );
 };

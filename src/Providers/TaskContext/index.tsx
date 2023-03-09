@@ -12,6 +12,7 @@ export const TaskContext = createContext<ITaskContext>({} as ITaskContext);
 
 export const TaskProvider = ({ children }: ITaskProviderProps) => {
   const [tasksList, setTasksList] = useState<ITask[] | null>(null);
+  const [showMenu, setShowMenu] = useState<true | null>(null);
   const id = localStorage.getItem('@ID');
   const token = localStorage.getItem('@TOKEN');
 
@@ -70,6 +71,8 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
         createTask,
         updateTask,
         deleteTask,
+        showMenu,
+        setShowMenu,
       }}
     >
       {children}

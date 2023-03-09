@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { TaskContext } from "../../../Providers/TaskContext";
 import NoTask from "./NoTask";
+import { StyledUl } from "./style";
 import TaskItem from "./TaskItem";
 
 interface ITaskList {
@@ -14,7 +15,7 @@ const TaskList = ({ setOpenModal, openModal, onClose }: ITaskList) => {
 
   if (tasksList) {
     return (
-      <ul>
+      <StyledUl>
         {tasksList.map((task) => (
           <TaskItem
             key={task.id}
@@ -25,7 +26,7 @@ const TaskList = ({ setOpenModal, openModal, onClose }: ITaskList) => {
             onClose={onClose}
           />
         ))}
-      </ul>
+      </StyledUl>
     );
   } else {
     return <NoTask />;

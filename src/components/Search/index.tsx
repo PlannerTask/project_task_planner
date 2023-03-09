@@ -1,11 +1,13 @@
 import React from "react";
+import { ImSearch } from "react-icons/im";
+import { StyledSearch } from "./style";
 
 const Search = () => {
   return (
-    <div>
+    <StyledSearch>
       <input type="text" placeholder="Search here" />
-      <img src="" alt="" />
-    </div>
+      <ImSearch className="icon" />
+    </StyledSearch>
   );
 };
 

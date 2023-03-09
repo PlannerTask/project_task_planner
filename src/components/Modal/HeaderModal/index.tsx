@@ -1,4 +1,5 @@
 import React from "react";
+import { StyledHeaderModal } from "./style";
 
 interface IModal {
   title: string;
@@ -7,10 +8,10 @@ interface IModal {
 
 const index = ({ title, onClose }: IModal) => {
   return (
-    <header>
+    <StyledHeaderModal>
       <h1>{title}</h1>
       <button onClick={() => onClose()}>X</button>
-    </header>
+    </StyledHeaderModal>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CreateModal from "../Modal/CreateModal";
+import { StyledDiv } from "./style";
 import TaskList from "./TaskList";
 
 const TaskBoard = () => {
@@ -13,11 +14,13 @@ const TaskBoard = () => {
     setOpenModal("closed");
   };
   return (
-    <div>
+    <StyledDiv>
       <h2>Nome do Usuario</h2>
-      <div>
+      <div className="taskBoardTitle">
         <h3>Task Board</h3>
-        <button onClick={() => showModal("create")}>+</button>
+        <button className="create" onClick={() => showModal("create")}>
+          +
+        </button>
       </div>
       <TaskList
         setOpenModal={setOpenModal}
@@ -25,7 +28,7 @@ const TaskBoard = () => {
         onClose={closeModal}
       />
       <CreateModal isOpen={openModal} onClose={closeModal} />
-    </div>
+    </StyledDiv>
   );
 };
 

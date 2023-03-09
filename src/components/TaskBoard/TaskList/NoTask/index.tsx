@@ -1,10 +1,11 @@
 import React from "react";
+import { NoTaskDiv } from "./style";
 
 const NoTask = () => {
   return (
-    <div>
+    <NoTaskDiv>
       <p>You dont have any tasks</p>
-    </div>
+    </NoTaskDiv>
   );
 };
 
