@@ -1,6 +1,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { ITaskUpdate } from '../../../Providers/TaskContext/types';
 import { Input } from '../Input';
+import { StyledDivForm } from './style';
 
 export const FormUpdate = () => {
   const { register, handleSubmit } = useForm<ITaskUpdate>({});
@@ -10,7 +11,7 @@ export const FormUpdate = () => {
     //ainda nao terminado esperando a parte do login para poder altera o usuario
   };
   return (
-    <div>
+    <StyledDivForm>
       <form onSubmit={handleSubmit(submit)}>
         <Input
           label={'name'}
@@ -28,8 +29,18 @@ export const FormUpdate = () => {
           text={'Email'}
           register={register('email')}
         />
-        <button>Enviar</button>
+        <Input
+          label={'url'}
+          id={'url'}
+          type={'text'}
+          placeholder={'Url'}
+          text={'Imagem'}
+          register={register('url')}
+        />
+        
+          <button className='button-update'>Save update</button>
+    
       </form>
-    </div>
+    </StyledDivForm>
   );
 };
