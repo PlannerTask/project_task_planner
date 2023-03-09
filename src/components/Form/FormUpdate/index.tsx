@@ -1,14 +1,15 @@
+import { useContext } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { ITaskUpdate } from '../../../Providers/TaskContext/types';
+import { UserContext } from '../../../Providers/UserContext';
+import { IUpdateProfile } from '../../../Providers/UserContext/types';
 import { Input } from '../Input';
 import { StyledDivForm } from './style';
 
 export const FormUpdate = () => {
-  const { register, handleSubmit } = useForm<ITaskUpdate>({});
-
-  const submit: SubmitHandler<ITaskUpdate> = (data) => {
-    console.log(data);
-    //ainda nao terminado esperando a parte do login para poder altera o usuario
+  const { register, handleSubmit } = useForm<IUpdateProfile>({});
+  const { updateProfile } = useContext(UserContext);
+  const submit: SubmitHandler<IUpdateProfile> = (data) => {
+    updateProfile(data);
   };
   return (
     <StyledDivForm>
@@ -37,9 +38,8 @@ export const FormUpdate = () => {
           text={'Imagem'}
           register={register('url')}
         />
-        
-          <button className='button-update'>Save update</button>
-    
+
+        <button className="button-update">Save update</button>
       </form>
     </StyledDivForm>
   );
