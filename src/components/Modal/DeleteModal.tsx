@@ -21,7 +21,7 @@ const index = ({ isOpen, onClose, task }: IModal) => {
     <div>
       <StyledModal onClick={() => onClose()} />
       <dialog open>
-        <HeaderModal title="Delete Task" />
+        <HeaderModal title="Delete Task" onClose={onClose} />
         <body>
           <label>Title</label>
           <input disabled>nome da task</input>
