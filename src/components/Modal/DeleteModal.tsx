@@ -1,19 +1,18 @@
-import React, { useContext } from "react";
-import { TaskContext } from "../../Providers/TaskContext";
-import { ITask } from "../../Providers/TaskContext/types";
-import { StyledModal } from "./BackgroundModal/style";
-import HeaderModal from "./HeaderModal";
+import React, { useContext } from 'react';
+import { TaskContext } from '../../Providers/TaskContext';
+import { ITask } from '../../Providers/TaskContext/types';
+import { StyledModal } from './BackgroundModal/style';
+import HeaderModal from './HeaderModal';
 
 interface IModal {
-  isOpen: string;
+  isOpen: true | null;
   onClose: () => void;
   task: ITask;
 }
 
 const index = ({ isOpen, onClose, task }: IModal) => {
-  const { deleteTask } = useContext(TaskContext);
-
-  if (isOpen != "delete") {
+  const { deleteTask,typesModal } = useContext(TaskContext);
+  if (!isOpen && typesModal != 'delete') {
     return null;
   }
 
@@ -21,15 +20,15 @@ const index = ({ isOpen, onClose, task }: IModal) => {
     <div>
       <StyledModal onClick={() => onClose()} />
       <dialog open>
-        <HeaderModal title="Delete Task" />
-        <body>
+        <HeaderModal onClose={onClose} title="Delete Task" />
+        <main>
           <label>Title</label>
-          <input disabled>nome da task</input>
+          <input type="text" />
           <div>
             <button onClick={() => deleteTask(task.id)}>Delete</button>
             <button onClick={() => onClose}>Cancel</button>
           </div>
-        </body>
+        </main>
       </dialog>
     </div>
   );

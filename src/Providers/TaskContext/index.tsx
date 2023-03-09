@@ -13,16 +13,20 @@ export const TaskContext = createContext<ITaskContext>({} as ITaskContext);
 export const TaskProvider = ({ children }: ITaskProviderProps) => {
   const [tasksList, setTasksList] = useState<ITask[] | null>(null);
   const [showMenu, setShowMenu] = useState<true | null>(null);
+  const [typesModal, setTypesModal] = useState('');
   const id = localStorage.getItem('@ID');
   const token = localStorage.getItem('@TOKEN');
 
   const createTask = async (data: ITaskCreate) => {
+    console.log(data);
+
     try {
       const response = await api.post('/tasks', data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
+      console.log(response);
     } catch (error) {
       console.log(error);
     }
@@ -30,7 +34,11 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
   useEffect(() => {
     const readTask = async (id: string | null) => {
       try {
-        const response = await api.get(`/tasks?userId=${id}`);
+        const response = await api.get(`/tasks?userId=${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         setTasksList(response.data);
       } catch (error) {
         console.log(error);
@@ -73,6 +81,8 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
         deleteTask,
         showMenu,
         setShowMenu,
+        typesModal,
+        setTypesModal,
       }}
     >
       {children}

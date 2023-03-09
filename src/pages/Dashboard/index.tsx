@@ -1,17 +1,17 @@
 import React from "react";
-import Footer from "../../Components/Footer";
+import Footer from "../../components/Footer";
 import { HeaderProfile } from "../../components/HeaderProfile";
-import Search from "../../Components/Search";
-import TaskBoard from "../../Components/TaskBoard";
+import Search from "../../components/Search";
+import TaskBoard from "../../components/TaskBoard";
 
 const Dashboard = () => {
   return (
     <>
       <HeaderProfile />
-      <body>
+      <main>
         <Search />
         <TaskBoard />
-      </body>
+      </main>
       <Footer />
     </>
   );

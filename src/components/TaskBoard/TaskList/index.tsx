@@ -5,8 +5,8 @@ import { StyledUl } from "./style";
 import TaskItem from "./TaskItem";
 
 interface ITaskList {
-  setOpenModal: React.Dispatch<React.SetStateAction<string>>;
-  openModal: string;
+  setOpenModal: React.Dispatch<React.SetStateAction<true | null>>
+  openModal: true | null,
   onClose: () => void;
 }
 
