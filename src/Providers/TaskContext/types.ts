@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
 export interface ITaskProviderProps {
   children: React.ReactNode;
@@ -16,8 +16,7 @@ export interface ITaskCreate {
 }
 export interface ITaskUpdate {
   name: string;
-  email: string;
-  url: string;
+  description: string;
 }
 
 export interface ITaskContext {

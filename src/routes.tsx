@@ -1,11 +1,13 @@
 import { Routes, Route } from 'react-router-dom';
-import { ProfilePage } from './pages/ProfilePage';
-import { LoginPage } from './pages/LoginPage';
+import { ProfilePage } from './Pages/ProfilePage';
+import { LoginPage } from './Pages/LoginPage';
 import { TaskProvider } from './Providers/TaskContext';
+import Dashboard from './Pages/Dashboard';
 
 export const Router = () => (
   <Routes>
     <Route path="/" element={<LoginPage />} />
+    <Route path="/dashboard" element={<Dashboard />} />
     <Route
       path="/profile"
       element={
