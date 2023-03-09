@@ -1,8 +1,8 @@
-import { Routes, Route } from 'react-router-dom';
-import { ProfilePage } from './Pages/ProfilePage';
-import { LoginPage } from './Pages/LoginPage';
-import { TaskProvider } from './Providers/TaskContext';
-import Dashboard from './Pages/Dashboard';
+import { Routes, Route } from "react-router-dom";
+import { ProfilePage } from "./pages/ProfilePage";
+import { LoginPage } from "./pages/LoginPage";
+import { TaskProvider } from "./Providers/TaskContext";
+import Dashboard from "./pages/Dashboard";
 
 export const Router = () => (
   <Routes>
