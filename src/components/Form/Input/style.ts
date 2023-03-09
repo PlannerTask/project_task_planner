@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledDivInput = styled.div`
+  
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -31,10 +32,10 @@ export const StyledDivInput = styled.div`
   input::placeholder {
     color: var(--color-grey-300);
   }
-  @media (min-width: 769px){
-    width:fit-content;
-    input{
-      width:314px;
+  @media (min-width: 769px) {
+    width: fit-content;
+    input {
+      width: 314px;
     }
   }
 `;

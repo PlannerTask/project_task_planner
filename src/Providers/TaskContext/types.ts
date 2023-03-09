@@ -17,9 +17,12 @@ export interface ITaskCreate {
 export interface ITaskUpdate {
   name: string;
   email: string;
+  url: string;
 }
 
 export interface ITaskContext {
+  showMenu: true | null;
+  setShowMenu: React.Dispatch<React.SetStateAction<true | null>>;
   tasksList: ITask[] | null;
   setTasksList: React.Dispatch<React.SetStateAction<ITask[] | null>>;
   createTask: (data: ITaskCreate) => Promise<void>;
