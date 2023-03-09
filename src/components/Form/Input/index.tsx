@@ -1,15 +1,22 @@
-import { UseFormRegisterReturn } from 'react-hook-form';
-import { StyledDivInput } from './style';
+import { UseFormRegisterReturn } from "react-hook-form";
+import { StyledDivInput } from "./style";
 
 interface IInput {
   text: string;
   label: string;
   type: string;
-  id:string;
+  id: string;
   placeholder: string;
   register: UseFormRegisterReturn<string>;
 }
-export const Input = ({ id,type, placeholder, label, text,register }: IInput) => {
+export const Input = ({
+  id,
+  type,
+  placeholder,
+  label,
+  text,
+  register,
+}: IInput) => {
   return (
     <StyledDivInput>
       <label htmlFor={label}>{text}</label>
