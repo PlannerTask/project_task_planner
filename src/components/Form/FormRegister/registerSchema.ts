@@ -16,7 +16,7 @@ export const registerSchema = yup.object().shape({
   confirmPassword: yup
     .string()
     .oneOf([yup.ref("password")], "Password does not match."),
-    img: yup.string().required('Image is required')
+    
 });
 
 

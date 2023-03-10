@@ -51,14 +51,14 @@ const index = ({ nameBtn, onClose, func }: IBodyModal) => {
         text="Title"
         register={register("name")}
       />
-      <p>{errors.name?.message}</p>
+      
       <label htmlFor="Description">Description</label>
       <textarea
         id="Description"
         placeholder="Description"
         {...register("description")}
       ></textarea>
-      <p>{errors.description?.message}</p>
+     
       <div className="btnArea">
         <button className="green" type="submit">
           {nameBtn}

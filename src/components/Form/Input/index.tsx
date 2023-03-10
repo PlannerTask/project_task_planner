@@ -8,11 +8,7 @@ interface IInput {
   id: string;
   placeholder: string;
   register: UseFormRegisterReturn<string>;
-<<<<<<< HEAD
   value?: string;
-=======
-  
->>>>>>> 1b9da5283911b8e7d708829529a71584d387aa4e
 }
 export const Input = ({
   id,

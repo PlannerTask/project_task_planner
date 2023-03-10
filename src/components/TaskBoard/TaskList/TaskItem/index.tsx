@@ -10,6 +10,7 @@ interface ITaskProps {
 }
 
 const TaskItem = ({ name, task }: ITaskProps) => {
+  console.log(name)
   const { setTypesModal } = useContext(TaskContext);
   const { showUpdateModal, tasksList } = useContext(TaskContext);
 

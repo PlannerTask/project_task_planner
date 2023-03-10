@@ -31,7 +31,6 @@ export interface ITaskContext {
   deleteTask: () => Promise<void>;
   setTypesModal: React.Dispatch<React.SetStateAction<string>>;
   typesModal: string;
-<<<<<<< HEAD
   taskSelected: ITask | null;
   setTaskSelected: React.Dispatch<React.SetStateAction<ITask | null>>;
   openUpdateModal: boolean;
@@ -40,11 +39,9 @@ export interface ITaskContext {
   closeModal: () => void;
   showCreateModal: () => void;
   openCreateModal: boolean;
-=======
   setSearch: React.Dispatch<React.SetStateAction<string>>;
   search: string;
   setSearchValue: React.Dispatch<React.SetStateAction<string>>;
   searchValue: string;
-  searchTaskList: ITask[];
->>>>>>> 1b9da5283911b8e7d708829529a71584d387aa4e
+  searchTaskList: ITask[] ;
 }

@@ -1,26 +1,33 @@
-import { createContext, useEffect, useState } from "react";
-import { api } from "../../services/api";
-import { IUser } from "../UserContext/types";
+import { createContext, useEffect, useState } from 'react';
+import { api } from '../../services/api';
+import { IUser } from '../UserContext/types';
 import {
   ITask,
   ITaskContext,
   ITaskCreate,
   ITaskProviderProps,
   ITaskUpdate,
-} from "./types";
+} from './types';
 
 export const TaskContext = createContext<ITaskContext>({} as ITaskContext);
 
 export const TaskProvider = ({ children }: ITaskProviderProps) => {
   const [tasksList, setTasksList] = useState<ITask[]>([]);
   const [showMenu, setShowMenu] = useState<true | null>(null);
-  const [typesModal, setTypesModal] = useState("");
+  const [typesModal, setTypesModal] = useState('');
   const [taskSelected, setTaskSelected] = useState<ITask | null>(null);
   const [openUpdateModal, setOpenUpdateModal] = useState<boolean>(false);
   const [openCreateModal, setOpenCreateModal] = useState<boolean>(false);
-  const id = localStorage.getItem("@ID");
-  const token = localStorage.getItem("@TOKEN");
+  const id = localStorage.getItem('@ID');
+  const token = localStorage.getItem('@TOKEN');
 
+  const [search, setSearch] = useState('');
+  const [searchValue, setSearchValue] = useState('');
+
+  const searchTaskList = tasksList.filter((task) => {
+    search == '' ? true : task.name.includes(search);
+  });
+  console.log(searchTaskList);
   const showCreateModal = () => {
     setOpenCreateModal(true);
   };
@@ -38,12 +45,9 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
     setTaskSelected(null);
   };
 
-  const searchTaskList = tasksList.filter((task) =>
-    search === " " ? true : task.name.includes(search)
-  );
   const createTask = async (data: ITaskCreate) => {
     try {
-      const response = await api.post("/tasks", data, {
+      const response = await api.post('/tasks', data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -66,10 +70,10 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
       }
     };
     readTask(id);
-  }, [tasksList]);
+  }, []);
 
   const updateTask = async (data: ITaskUpdate, id: string) => {
-    const token = localStorage.getItem("@TOKEN");
+    const token = localStorage.getItem('@TOKEN');
 
     try {
       const response = await api.patch(`/tasks/${id}`, data, {
@@ -115,6 +119,11 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
         closeModal,
         showCreateModal,
         openCreateModal,
+        search,
+        setSearch,
+        searchValue,
+        setSearchValue,
+        searchTaskList,
       }}
     >
       {children}
