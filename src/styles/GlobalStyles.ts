@@ -1,11 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
+* {
+  cursor: pointer;
+}
   :root{
     --color-primary:#C5FF75;
     --color-primary-hover:#C5FF55;
     
-    --color-secondary:#E20000;
+    --color-secondary:#B20000;
 
     --color-white:#FFFFFF;
 
@@ -27,6 +30,8 @@ export const GlobalStyles = createGlobalStyle`
     --title-size-3:0.875rem;
     
     --text-size-default:1rem;
+    --text-size-large: 1.5rem;
+    --text-size-medium: 1.375rem;
     --text-size-small:0.875rem;
 
     --font-size-profile:20px;
