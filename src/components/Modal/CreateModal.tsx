@@ -1,16 +1,18 @@
-import React from "react";
-import { StyledModal } from "./BackgroundModal/style";
-import BodyFormModal from "./BodyFormModal";
-import HeaderModal from "./HeaderModal";
-import { StyledDialog } from "./style";
+import React, { useContext } from 'react';
+import { TaskContext } from '../../Providers/TaskContext';
+import { StyledModal } from './BackgroundModal/style';
+import BodyFormModal from './BodyFormModal';
+import HeaderModal from './HeaderModal';
+import { StyledDialog } from './style';
 
 interface IModal {
-  isOpen: string;
+  isOpen: boolean | null;
   onClose: () => void;
 }
 
 const CreateModal = ({ isOpen, onClose }: IModal) => {
-  if (isOpen != "create") {
+  const { typesModal } = useContext(TaskContext);
+  if (!isOpen && typesModal != 'create') {
     return null;
   }
 

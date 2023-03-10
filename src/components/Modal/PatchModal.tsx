@@ -1,18 +1,20 @@
-import React, { useContext } from "react";
-import { TaskContext } from "../../Providers/TaskContext";
-import { ITask } from "../../Providers/TaskContext/types";
-import { StyledModal } from "./BackgroundModal/style";
-import BodyFormModal from "./BodyFormModal";
-import HeaderModal from "./HeaderModal";
+import React, { useContext } from 'react';
+import { TaskContext } from '../../Providers/TaskContext';
+import { ITask } from '../../Providers/TaskContext/types';
+import { StyledModal } from './BackgroundModal/style';
+import BodyFormModal from './BodyFormModal';
+import HeaderModal from './HeaderModal';
 
 interface IModal {
-  isOpen: string;
+  isOpen: true | null;
   onClose: () => void;
   task: ITask;
 }
 
 const PatchModal = ({ isOpen, onClose, task }: IModal) => {
-  if (isOpen != "patch") {
+  const { typesModal } = useContext(TaskContext);
+
+  if (!isOpen && typesModal != 'patch') {
     return null;
   }
 
@@ -20,7 +22,7 @@ const PatchModal = ({ isOpen, onClose, task }: IModal) => {
     <div>
       <StyledModal onClick={() => onClose()} />
       <dialog>
-        <HeaderModal title="Update Task" />
+        <HeaderModal onClose={onClose} title="Update Task" />
         <BodyFormModal
           nameBtn="Save"
           onClose={onClose}
