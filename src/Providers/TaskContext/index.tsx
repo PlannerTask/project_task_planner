@@ -1,32 +1,37 @@
-import { createContext, useEffect, useState } from "react";
-import { api } from "../../services/api";
-import { IUser } from "../UserContext/types";
+import { createContext, useEffect, useState } from 'react';
+import { api } from '../../services/api';
+import { IUser } from '../UserContext/types';
 import {
   ITask,
   ITaskContext,
   ITaskCreate,
   ITaskProviderProps,
   ITaskUpdate,
-} from "./types";
+} from './types';
 
 export const TaskContext = createContext<ITaskContext>({} as ITaskContext);
 
 export const TaskProvider = ({ children }: ITaskProviderProps) => {
   const [tasksList, setTasksList] = useState<ITask[]>([]);
   const [showMenu, setShowMenu] = useState<true | null>(null);
-  const [typesModal, setTypesModal] = useState("");
+  const [typesModal, setTypesModal] = useState('');
   const [taskSelected, setTaskSelected] = useState<ITask | null>(null);
   const [openUpdateModal, setOpenUpdateModal] = useState<boolean>(false);
   const [openCreateModal, setOpenCreateModal] = useState<boolean>(false);
-  const id = localStorage.getItem("@ID");
-  const token = localStorage.getItem("@TOKEN");
+  const id = localStorage.getItem('@ID');
+  const token = localStorage.getItem('@TOKEN');
 
-  const [search, setSearch] = useState("");
-  const [searchValue, setSearchValue] = useState("");
+  const [search, setSearch] = useState('');
+  const [searchValue, setSearchValue] = useState('');
 
   const searchTaskList = tasksList.filter((task) => {
-    search == "" ? true : task.name.includes(search);
+    if(task.name.includes(search)){
+      return task
+    } else if (search == ''){
+      return tasksList
+    }
   });
+  console.log(searchTaskList);
   const showCreateModal = () => {
     setOpenCreateModal(true);
   };
@@ -46,7 +51,7 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
 
   const createTask = async (data: ITaskCreate) => {
     try {
-      const response = await api.post("/tasks", data, {
+      const response = await api.post('/tasks', data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -54,25 +59,28 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
     } catch (error) {
       console.log(error);
     }
-  };
-  useEffect(() => {
-    const readTask = async (id: string | null) => {
-      try {
-        const response = await api.get(`/tasks?userId=${id}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        setTasksList(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     readTask(id);
-  }, [tasksList]);
+  };
+
+  const readTask = async (id: string | null) => {
+    try {
+      const response = await api.get(`/tasks?userId=${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setTasksList(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    readTask(id);
+  }, []);
 
   const updateTask = async (data: ITaskUpdate, id: string) => {
-    const token = localStorage.getItem("@TOKEN");
+    const token = localStorage.getItem('@TOKEN');
 
     try {
       const response = await api.patch(`/tasks/${id}`, data, {
@@ -80,6 +88,15 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
           Authorization: `Bearer ${token}`,
         },
       });
+      const newTask = tasksList.map((task) => {
+        if (task.id == response.data.id) {
+          console.log({ ...task, ...data });
+          return { ...task, ...data };
+        } else {
+          return task;
+        }
+      });
+      setTasksList(newTask as []);
     } catch (error) {
       console.log(error);
     }
@@ -93,6 +110,8 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
           Authorization: `Bearer ${token}`,
         },
       });
+      const removeTask = tasksList.filter((task) => taskId != task.id);
+      setTasksList(removeTask);
     } catch (error) {
       console.log(error);
     }
