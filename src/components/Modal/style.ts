@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledDialog = styled.dialog`
   padding: 0;
 
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;

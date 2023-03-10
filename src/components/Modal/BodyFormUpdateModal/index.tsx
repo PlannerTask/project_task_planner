@@ -2,17 +2,15 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { SubmitHandler } from "react-hook-form/dist/types";
 import { TaskContext } from "../../../Providers/TaskContext";
+import { ITask } from "../../../Providers/TaskContext/types";
 import { Input } from "../../Form/Input";
 import { StyledFormModal } from "./style";
-
-import * as yup from "yup"
-import { yupResolver } from '@hookform/resolvers/yup';
 
 interface IBodyModal {
   nameBtn: string;
   onClose: () => void;
   func: string;
-  id: string;
+  task: ITask;
 }
 
 interface IFormModal {
@@ -21,42 +19,27 @@ interface IFormModal {
   userId: string | null;
 }
 
-const schema = yup
-  .object({
-    name: yup.string().required("The task Name field is required"),
-    description: yup
-      .string()
-      .required("The task Description field is required"),
-  })
-  .required();
-
-const index = ({ nameBtn, onClose, func, id }: IBodyModal) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<IFormModal>({
-    resolver: yupResolver(schema),
-  });
-  const { createTask, updateTask } = useContext(TaskContext);
+const index = ({ nameBtn, onClose, func, task }: IBodyModal) => {
+  const { register, handleSubmit } = useForm<IFormModal>();
+  const { createTask, updateTask, taskSelected } = useContext(TaskContext);
 
   const submit: SubmitHandler<IFormModal> = (formData) => {
-    const idUser = localStorage.getItem('@ID');
+    const idUser = localStorage.getItem("@ID");
     const addIdData = () => {
       formData.userId = idUser;
       return formData;
     };
-    addIdData()
+    addIdData();
 
-    if (func === 'update') {
-      updateTask(formData, id);
-      onClose();
+    if (func === "update") {
+      if (!!taskSelected) {
+        updateTask(formData, taskSelected.id);
+        onClose();
+      }
     } else {
-      console.log(formData);
       createTask(formData);
       onClose();
     }
-    
   };
 
   return (
@@ -64,19 +47,17 @@ const index = ({ nameBtn, onClose, func, id }: IBodyModal) => {
       <Input
         id="Title"
         type="text"
-        placeholder="Title"
+        placeholder={task.name}
         label="Title"
         text="Title"
-        register={register('name')}
+        register={register("name")}
       />
-      <p>{errors.name?.message}</p>
       <label htmlFor="Description">Description</label>
       <textarea
         id="Description"
-        placeholder="Description"
-        {...register('description')}
+        placeholder={task.description}
+        {...register("description")}
       ></textarea>
-      <p>{errors.description?.message}</p>
       <div className="btnArea">
         <button className="green" type="submit">
           {nameBtn}

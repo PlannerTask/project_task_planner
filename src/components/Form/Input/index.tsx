@@ -8,7 +8,11 @@ interface IInput {
   id: string;
   placeholder: string;
   register: UseFormRegisterReturn<string>;
+<<<<<<< HEAD
+  value?: string;
+=======
   
+>>>>>>> 1b9da5283911b8e7d708829529a71584d387aa4e
 }
 export const Input = ({
   id,
@@ -17,11 +21,18 @@ export const Input = ({
   label,
   text,
   register,
+  value,
 }: IInput) => {
   return (
     <StyledDivInput>
       <label htmlFor={label}>{text}</label>
-      <input id={id} type={type} placeholder={placeholder} {...register} />
+      <input
+        id={id}
+        type={type}
+        placeholder={placeholder}
+        {...register}
+        value={value}
+      />
     </StyledDivInput>
   );
 };
