@@ -18,6 +18,7 @@ export const FormUpdate = () => {
     defaultValues: {
       name: user?.name,
       email: user?.email,
+      url: user?.url,
     },
   });
   const submit: SubmitHandler<IUpdateProfile> = (data) => {
