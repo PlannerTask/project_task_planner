@@ -32,6 +32,9 @@ export const StyledMain = styled.main`
           background:var(--color-grey-600);
         }
       }
+      h2{
+        font-size:var(--font-size-profile);
+      }
     }
     h1 {
       font-size: var(--title-size-2);
