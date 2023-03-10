@@ -26,7 +26,7 @@ const TaskItem = ({ name, task }: ITaskProps) => {
   };
 
   return (
-    <StyledLi>
+    <StyledLi onClick={() => idValidate(task.id)}>
       <p className="taskName">{name}</p>
       <div className="btnContainer">
         <button
