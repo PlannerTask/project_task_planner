@@ -7,6 +7,7 @@ export interface IUser {
     id?: number;
     name?: string;
     img?: string;
+    url?:string;
   }
   export interface IUpdateProfile {
     name: string;

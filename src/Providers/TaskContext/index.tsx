@@ -11,15 +11,19 @@ import {
 export const TaskContext = createContext<ITaskContext>({} as ITaskContext);
 
 export const TaskProvider = ({ children }: ITaskProviderProps) => {
-  const [tasksList, setTasksList] = useState<ITask[] | null>(null);
+  const [tasksList, setTasksList] = useState<ITask[]>([]);
   const [showMenu, setShowMenu] = useState<true | null>(null);
+  const [search, setSearch] = useState('');
+  const [searchValue, setSearchValue] = useState('');
+
   const [typesModal, setTypesModal] = useState('');
   const id = localStorage.getItem('@ID');
   const token = localStorage.getItem('@TOKEN');
 
+  const searchTaskList = tasksList.filter((task) =>
+    search === ' ' ? true : task.name.includes(search)
+  );
   const createTask = async (data: ITaskCreate) => {
-    console.log(data);
-
     try {
       const response = await api.post('/tasks', data, {
         headers: {
@@ -83,6 +87,11 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
         setShowMenu,
         typesModal,
         setTypesModal,
+        search,
+        setSearch,
+        searchValue,
+        setSearchValue,
+        searchTaskList,
       }}
     >
       {children}
