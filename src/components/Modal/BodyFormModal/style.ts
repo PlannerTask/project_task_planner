@@ -8,17 +8,25 @@ export const StyledFormModal = styled.form`
   display: flex;
   flex-direction: column;
 
+  p {
+    max-width: 200px;
+    margin: 5px 0 5px 10px;
+    font-family: "Inter";
+    font-weight: 500;
+    font-size: var(--title-size-3);
+    line-height: var(--text-size-default);
+
+    color: rgb(300, 1, 1);
+  }
+
   label {
+    margin-top: 20px;
     font-family: "Inter";
     font-weight: 500;
     font-size: var(--title-size-3);
     line-height: var(--text-size-default);
 
     color: var(--color-white);
-  }
-
-  input {
-    margin-bottom: 22px;
   }
 
   textarea {
@@ -87,6 +95,10 @@ export const StyledFormModal = styled.form`
   }
 
   @media (min-width: 769px) {
+    p {
+      max-width: 300px;
+    }
+
     textarea {
       width: 314px;
     }

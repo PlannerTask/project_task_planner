@@ -1,9 +1,12 @@
-import React, { useContext } from 'react';
-import { useForm } from 'react-hook-form';
-import { SubmitHandler } from 'react-hook-form/dist/types';
-import { TaskContext } from '../../../Providers/TaskContext';
-import { Input } from '../../Form/Input';
-import { StyledFormModal } from './style';
+import React, { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { SubmitHandler } from "react-hook-form/dist/types";
+import { TaskContext } from "../../../Providers/TaskContext";
+import { Input } from "../../Form/Input";
+import { StyledFormModal } from "./style";
+
+import * as yup from "yup"
+import { yupResolver } from '@hookform/resolvers/yup';
 
 interface IBodyModal {
   nameBtn: string;
@@ -18,8 +21,23 @@ interface IFormModal {
   userId: string | null;
 }
 
+const schema = yup
+  .object({
+    name: yup.string().required("The task Name field is required"),
+    description: yup
+      .string()
+      .required("The task Description field is required"),
+  })
+  .required();
+
 const index = ({ nameBtn, onClose, func, id }: IBodyModal) => {
-  const { register, handleSubmit } = useForm<IFormModal>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IFormModal>({
+    resolver: yupResolver(schema),
+  });
   const { createTask, updateTask } = useContext(TaskContext);
 
   const submit: SubmitHandler<IFormModal> = (formData) => {
@@ -51,17 +69,19 @@ const index = ({ nameBtn, onClose, func, id }: IBodyModal) => {
         text="Title"
         register={register('name')}
       />
+      <p>{errors.name?.message}</p>
       <label htmlFor="Description">Description</label>
       <textarea
         id="Description"
         placeholder="Description"
         {...register('description')}
       ></textarea>
+      <p>{errors.description?.message}</p>
       <div className="btnArea">
         <button className="green" type="submit">
           {nameBtn}
         </button>
-        <button className="cancel" onClick={() => onClose}>
+        <button className="cancel" onClick={() => onClose()}>
           Cancel
         </button>
       </div>
