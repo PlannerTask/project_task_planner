@@ -11,11 +11,11 @@ import { StyledFormLogin } from "./style";
 const schema = yup.object({
     email: yup
       .string()
-      .email('Insira um email válido')
-      .required('Email obrigatório'),
+      .email('Enter a valid email')
+      .required('Required email'),
     password: yup
       .string()
-      .required('Senha incorreta'),
+      .required('Incorrect password'),
   });
 
 export const FormLogin = ()=>{
@@ -36,14 +36,14 @@ export const FormLogin = ()=>{
             <Input 
             label='Email Address'
             type='text' 
-            placeholder='Digite seu email'
+            placeholder='Email Address'
             text='Email Address'
             id='email'
             register={register('email')} />
             <Input
             label='Password'
             type='password'
-            placeholder='Dgite sua senha'
+            placeholder='Password'
             text='Password'
             id='password'
             register={register('password')}/>
