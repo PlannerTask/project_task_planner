@@ -38,7 +38,7 @@ export const StyledDiv = styled.div`
     width: 11px;
     height: 11px;
 
-    background: #c5ff75;
+    background: var(--color-primary);
     border-radius: 100px;
     border: none;
 
@@ -47,6 +47,10 @@ export const StyledDiv = styled.div`
     justify-content: center;
 
     font-weight: 500;
+
+    &:hover {
+      background: var(--color-primary-hover);
+    }
   }
 
   @media(min-width: 768px){
@@ -129,13 +133,17 @@ export const DeleteModal = styled.main`
     line-height: 17px;
 
     color: #ffffff;
+
+    &:hover {
+      background-color: var(--color-secondary);
+    }
   }
 
   .cancelBtn {
     width: 90px;
     height: 33px;
 
-    background: #252a34;
+    background-color: var(--color-grey-600);
     border-radius: 8px;
     border: none;
 
@@ -146,5 +154,10 @@ export const DeleteModal = styled.main`
     line-height: 17px;
 
     color: #ffffff;
+
+    &:hover {
+      background-color: var(--color-grey-300);
+    }
+
   }
 `;
