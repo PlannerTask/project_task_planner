@@ -19,7 +19,7 @@ const TaskList = () => {
     return (
       <StyledUl>
         <Modal isOpen={openUpdateModal} onClose={closeModal} />
-        {tasksList.map((task) => (
+        {searchTaskList.map((task) => (
           <TaskItem key={task.id} name={task.name} task={task} />
         ))}
       </StyledUl>
