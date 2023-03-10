@@ -6,7 +6,7 @@ export const HeaderProfile = () => {
   
   return (
     <StyledHeaderProfile>
-      <h2>Task Planner</h2>
+      <h1>Task Planner</h1>
       <div>
         <nav>
           <MenuMobileProfile/>

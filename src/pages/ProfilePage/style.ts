@@ -50,5 +50,12 @@ export const StyledMain = styled.main`
     }
   }
   @media (min-width: 768px) {
+    .container-profile-update {
+
+      h1 {
+        font-size: var(--text-size-large);
+        font-weight: 700;
+      }
+    }
   }
 `;

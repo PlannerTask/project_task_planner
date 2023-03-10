@@ -25,6 +25,7 @@ export const StyledDivForm = styled.div`
   @media (min-width: 768px) {
     .button-update{
       width:100%;
+      height: 42px;
     }
   
     

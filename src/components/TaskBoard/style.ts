@@ -7,7 +7,7 @@ export const StyledDiv = styled.div`
   justify-content: center;
 
   h2 {
-    margin-top: 69px;
+    margin: 69px 0px 14px 0px;
     font-family: "Inter";
     font-weight: 600;
     font-size: var(--title-size-2);
@@ -39,7 +39,7 @@ export const StyledDiv = styled.div`
     height: 11px;
 
     background: #c5ff75;
-    border-radius: 8px;
+    border-radius: 100px;
     border: none;
 
     display: flex;
@@ -47,6 +47,22 @@ export const StyledDiv = styled.div`
     justify-content: center;
 
     font-weight: 500;
+  }
+
+  @media(min-width: 768px){
+    h2 {
+      margin: 69px 0px 69px 0px;
+      font-size: var(--text-size-large);
+    }
+
+    h3 {
+      font-size: var(--text-size-medium);
+    }
+
+    .create {
+      width: 20px;
+      height: 20px;
+    }
   }
 `;
 
