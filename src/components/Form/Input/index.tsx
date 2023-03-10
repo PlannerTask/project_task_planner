@@ -1,4 +1,4 @@
-import { UseFormRegisterReturn } from "react-hook-form";
+import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 import { StyledDivInput } from "./style";
 
 interface IInput {
@@ -8,7 +8,11 @@ interface IInput {
   id: string;
   placeholder: string;
   register: UseFormRegisterReturn<string>;
+<<<<<<< HEAD
   value?: string;
+=======
+  
+>>>>>>> 1b9da5283911b8e7d708829529a71584d387aa4e
 }
 export const Input = ({
   id,

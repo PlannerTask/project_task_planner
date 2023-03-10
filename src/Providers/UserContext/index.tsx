@@ -82,8 +82,11 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         headers: {
           Authorization: `Bearer ${token}`,
         },
+        
       });
+      
       console.log(response.data);
+      setUser(response.data)
     } catch (error) {
       console.log(error);
     }

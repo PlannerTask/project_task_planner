@@ -28,6 +28,8 @@ export const GlobalStyles = createGlobalStyle`
     
     --text-size-default:1rem;
     --text-size-small:0.875rem;
+
+    --font-size-profile:20px;
   }
   body{
     background-color:#181920;

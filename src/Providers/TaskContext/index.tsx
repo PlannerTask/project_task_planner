@@ -12,7 +12,7 @@ import {
 export const TaskContext = createContext<ITaskContext>({} as ITaskContext);
 
 export const TaskProvider = ({ children }: ITaskProviderProps) => {
-  const [tasksList, setTasksList] = useState<ITask[] | null>(null);
+  const [tasksList, setTasksList] = useState<ITask[]>([]);
   const [showMenu, setShowMenu] = useState<true | null>(null);
   const [typesModal, setTypesModal] = useState("");
   const [taskSelected, setTaskSelected] = useState<ITask | null>(null);
@@ -38,6 +38,9 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
     setTaskSelected(null);
   };
 
+  const searchTaskList = tasksList.filter((task) =>
+    search === " " ? true : task.name.includes(search)
+  );
   const createTask = async (data: ITaskCreate) => {
     try {
       const response = await api.post("/tasks", data, {
