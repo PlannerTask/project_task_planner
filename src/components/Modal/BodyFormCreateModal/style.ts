@@ -45,7 +45,7 @@ export const StyledFormModal = styled.form`
     font-size: var(--title-size-3);
     line-height: var(--title-size-2);
 
-    color: var(--color-grey-300);
+    color: var(--color-white);
   }
 
   textarea::placeholder {
@@ -98,7 +98,7 @@ export const StyledFormModal = styled.form`
     color: var(--color-white);
 
     &:hover {
-      background: var(--color-grey-300)
+      background: var(--color-grey-300);
     }
   }
 
