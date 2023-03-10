@@ -15,24 +15,32 @@ align-items:center;
         align-items:center;
         justify-content:center;
         gap:20px;
+        
         font-family:var(--font-text-default);
             p{
                 color:var( --color-grey-300);
                 font-weight:600;
                 font-size:var( --title-size-3);
-            }button{
+            }a{
                 width:100%;
                 height:33px;
+                color:var(--color-grey-800);
                 border-radius:var( --radius-default);
                 border:none;
                 font-family:var(--font-text-default);
                 font-size:var(--title-size-3);
                 font-weight:500;
                 background-color:var( --color-white);
-            }button:hover{
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+            }a:hover{
                 background-color:var(--color-grey-300);
                 color:var(--color-grey-0);
             }
+
     }
     @media (min-width: 769px){
         flex-direction:row;
@@ -54,8 +62,10 @@ align-items:center;
         .bottom__container{
             width:100%;
             gap:50px;
-                button{
+                a{
                     width:333px;
+                    height: 42px;
+                    font-size:var(--text-size-default);
                 }
         }
     }

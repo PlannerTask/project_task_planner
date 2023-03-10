@@ -33,5 +33,6 @@ export const GlobalStyles = createGlobalStyle`
   }
   body{
     background-color:#181920;
+    font-family: 'Inter';
   }
 `

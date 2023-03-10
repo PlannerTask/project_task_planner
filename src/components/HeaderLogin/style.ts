@@ -5,11 +5,11 @@ display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
-gap:16px;
+gap:20px;
 font-family:var(--font-text-default);
 height:30vh;
 h1{
-    font-size:var( --title-size-1);
+    font-size:var(--title-size-2);
     color:#fff;
     font-weight:bold;
     line-height:1.375rem;
@@ -24,5 +24,16 @@ p{
     justify-content:flex-start;
     padding:25px;
     height:20%;
+    gap: 34px;
+
+    h1{
+    font-size:var(--title-size-1);
+    color:#fff;
+    font-weight:bold;
+    line-height:1.375rem;
+}
+p{
+    font-size:var(--text-size-default);    
+}
 }
 `
