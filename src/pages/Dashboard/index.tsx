@@ -8,10 +8,10 @@ const Dashboard = () => {
   return (
     <>
       <HeaderProfile />
-      <body>
+      <main>
         <Search />
         <TaskBoard />
-      </body>
+      </main>
       <Footer />
     </>
   );

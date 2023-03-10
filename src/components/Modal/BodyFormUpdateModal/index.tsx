@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { SubmitHandler } from "react-hook-form/dist/types";
 import { TaskContext } from "../../../Providers/TaskContext";
+import { ITask } from "../../../Providers/TaskContext/types";
 import { Input } from "../../Form/Input";
 import { StyledFormModal } from "./style";
 
@@ -9,22 +10,32 @@ interface IBodyModal {
   nameBtn: string;
   onClose: () => void;
   func: string;
-  id: string;
+  task: ITask;
 }
 
 interface IFormModal {
   name: string;
   description: string;
+  userId: string | null;
 }
 
-const index = ({ nameBtn, onClose, func, id }: IBodyModal) => {
+const index = ({ nameBtn, onClose, func, task }: IBodyModal) => {
   const { register, handleSubmit } = useForm<IFormModal>();
-  const { createTask, updateTask } = useContext(TaskContext);
+  const { createTask, updateTask, taskSelected } = useContext(TaskContext);
 
   const submit: SubmitHandler<IFormModal> = (formData) => {
+    const idUser = localStorage.getItem("@ID");
+    const addIdData = () => {
+      formData.userId = idUser;
+      return formData;
+    };
+    addIdData();
+
     if (func === "update") {
-      updateTask(formData, id);
-      onClose();
+      if (!!taskSelected) {
+        updateTask(formData, taskSelected.id);
+        onClose();
+      }
     } else {
       createTask(formData);
       onClose();
@@ -36,7 +47,7 @@ const index = ({ nameBtn, onClose, func, id }: IBodyModal) => {
       <Input
         id="Title"
         type="text"
-        placeholder="Title"
+        placeholder={task.name}
         label="Title"
         text="Title"
         register={register("name")}
@@ -44,14 +55,14 @@ const index = ({ nameBtn, onClose, func, id }: IBodyModal) => {
       <label htmlFor="Description">Description</label>
       <textarea
         id="Description"
-        placeholder="Description"
+        placeholder={task.description}
         {...register("description")}
       ></textarea>
       <div className="btnArea">
         <button className="green" type="submit">
           {nameBtn}
         </button>
-        <button className="cancel" onClick={() => onClose}>
+        <button className="cancel" onClick={() => onClose()}>
           Cancel
         </button>
       </div>

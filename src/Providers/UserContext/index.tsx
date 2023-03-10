@@ -25,7 +25,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       window.localStorage.setItem('@TOKEN', response.data.accessToken);
       window.localStorage.setItem('@ID', response.data.user.id);
       setUser(response.data.user);
-      navigate('/profile');
+      navigate('/dashboard');
     } catch (error) {
       toast.error('Login Inválido');
       console.log(error);
@@ -82,8 +82,11 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         headers: {
           Authorization: `Bearer ${token}`,
         },
+        
       });
+      
       console.log(response.data);
+      setUser(response.data)
     } catch (error) {
       console.log(error);
     }

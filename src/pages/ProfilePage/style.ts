@@ -14,18 +14,32 @@ export const StyledMain = styled.main`
       display: flex;
       flex-direction: column;
       align-items: center;
-      img {
-        width: 90px;
-        height: 90px;
-        background:var(--color-white);
-        border-radius:45px;
+      .container-profile-image {
+        img {
+          width: 90px;
+          height: 90px;
+          border-radius: 45px;
+        }
+        h3{
+          display:flex;
+          align-items:center;
+          justify-content:center;
+
+          width: 90px;
+          height: 90px;
+          border-radius: 45px;
+          font-size:var(--title-size-1);
+          background:var(--color-grey-600);
+        }
       }
-      h1 {
-        font-size: var(--title-size-2);
-        font-weight: 700;
+      h2{
+        font-size:var(--font-size-profile);
       }
     }
-
+    h1 {
+      font-size: var(--title-size-2);
+      font-weight: 700;
+    }
     .container-user {
       div {
         display: flex;

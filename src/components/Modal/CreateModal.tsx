@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TaskContext } from "../../Providers/TaskContext";
 import { StyledModal } from "./BackgroundModal/style";
-import BodyFormModal from "./BodyFormModal";
+import BodyFormCreateModal from "./BodyFormCreateModal";
 import HeaderModal from "./HeaderModal";
 import { StyledDialog } from "./style";
 
 interface IModal {
-  isOpen: string;
+  isOpen: boolean;
   onClose: () => void;
 }
 
 const CreateModal = ({ isOpen, onClose }: IModal) => {
-  if (isOpen != "create") {
+  const { typesModal } = useContext(TaskContext);
+  if (!isOpen) {
     return null;
   }
 
@@ -19,7 +21,7 @@ const CreateModal = ({ isOpen, onClose }: IModal) => {
       <StyledModal onClick={() => onClose()} />
       <StyledDialog open>
         <HeaderModal title="Create Task" onClose={onClose} />
-        <BodyFormModal nameBtn="Create" onClose={onClose} func="create" id="" />
+        <BodyFormCreateModal nameBtn="Create" onClose={onClose} func="create" />
       </StyledDialog>
     </div>
   );

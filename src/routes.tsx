@@ -9,7 +9,16 @@ export const Router = () => (
   <Routes>
     <Route path="/" element={<LoginPage />} />
     <Route path="/register" element={<RegisterPage/>}/>
-    <Route path="/dashboard" element={<Dashboard />} />
+    
+    <Route
+      path="/dashboard"
+      element={
+        <TaskProvider>
+          <Dashboard />
+        </TaskProvider>
+      }
+    />
+    
     <Route
       path="/profile"
       element={
