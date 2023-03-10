@@ -2,7 +2,9 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
 * {
-  cursor: pointer;
+  button {
+    cursor: pointer;
+  }
 }
   :root{
     --color-primary:#C5FF75;

@@ -11,6 +11,10 @@ export const StyledLi = styled.li`
   background: var(--color-grey-600);
   border-radius: 8px;
 
+  &:hover {
+    background: var(--color-grey-300)
+  }
+
   .taskName {
     margin-left: 15px;
 
