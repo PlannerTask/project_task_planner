@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledLi = styled.li`
   width: 205px;
   height: 33px;
+  min-height: 33px;
 
   display: flex;
   align-items: center;
@@ -61,6 +62,8 @@ export const StyledLi = styled.li`
   @media (min-width: 769px) {
     width: 333px;
     height: 42px;
+    min-height: 42px;
+  
     .taskName {
       margin-left: 25px;
     }
