@@ -94,7 +94,7 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
       });
       const newTask = tasksList.map((task) => {
         if (task.id == response.data.id) {
-          console.log({ ...task, ...data });
+          
           return { ...task, ...data };
         } else {
           return task;

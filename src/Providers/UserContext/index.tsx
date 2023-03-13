@@ -38,7 +38,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       const response = await api.post('/register', data);
       toast.success('Registration successfully Complete!');
       setUser(response.data.user);
-      navigate('/');
+      navigate('/login');
     } catch (error) {
       toast.error('Invalid registration');
       console.log(error);

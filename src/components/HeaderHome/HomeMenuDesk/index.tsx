@@ -7,7 +7,7 @@ export const MenuHomeDesktop = () => {
       <StyledHomeMenuDesk>
         <div className="container-desktop-menu-home">
           <div>
-            <Link to='/'>Login</Link>
+            <Link to='/login'>Login</Link>
             <Link className="btn-sign-up-home" to='/register'>Sign up</Link>
           </div>
         </div>

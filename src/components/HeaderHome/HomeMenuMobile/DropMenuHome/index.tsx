@@ -20,7 +20,7 @@ export const DropMenuHome = () => {
       </button>
       <div className="container-drop-menu-home">
         <div>
-          <Link to={'/'}>Login</Link>
+          <Link to={'/login'}>Login</Link>
           <Link to={'/register'}>Sign up</Link>
         </div>
       </div>

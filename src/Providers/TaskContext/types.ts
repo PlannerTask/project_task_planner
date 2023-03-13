@@ -26,7 +26,7 @@ export interface ITaskContext {
   setShowMenu: React.Dispatch<React.SetStateAction<true | null>>;
   showMenuHome: true | null;
   setShowMenuHome: React.Dispatch<React.SetStateAction<true | null>>;
-  tasksList: ITask[] | null;
+  tasksList: ITask[];
   setTasksList: React.Dispatch<React.SetStateAction<ITask[]>>;
   createTask: (data: ITaskCreate) => Promise<void>;
   updateTask: (data: ITaskUpdate, id: string) => Promise<void>;

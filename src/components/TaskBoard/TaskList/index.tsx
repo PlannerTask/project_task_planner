@@ -15,7 +15,7 @@ const TaskList = () => {
   const { tasksList, openUpdateModal, closeModal, searchTaskList } =
     useContext(TaskContext);
   const { logout } = useContext(UserContext);
-  if (tasksList) {
+  if (tasksList.length > 0) {
     return (
       <StyledUl>
         <Modal isOpen={openUpdateModal} onClose={closeModal} />
