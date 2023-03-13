@@ -20,11 +20,16 @@ export const StyledDivForm = styled.div`
       background: var(--color-primary);
       border: none;
       border-radius: var(--radius-default);
+
+      &:hover {
+        background-color: var(--color-primary-hover);
+      }
     
   }
   @media (min-width: 768px) {
     .button-update{
       width:100%;
+      height: 42px;
     }
   
     

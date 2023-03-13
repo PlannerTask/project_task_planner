@@ -1,30 +1,26 @@
-import React, { useContext } from 'react';
-import { TaskContext } from '../../../Providers/TaskContext';
-import NoTask from './NoTask';
-import { StyledUl } from './style';
-import TaskItem from './TaskItem';
+import React, { useContext } from "react";
+import { TaskContext } from "../../../Providers/TaskContext";
+import { UserContext } from "../../../Providers/UserContext";
+import Modal from "../../Modal";
+import NoTask from "./NoTask";
+import { StyledUl } from "./style";
+import TaskItem from "./TaskItem";
 
 interface ITaskList {
-  setOpenModal: React.Dispatch<React.SetStateAction<true | null>>;
-  openModal: true | null;
+  openModal: boolean;
   onClose: () => void;
 }
 
-const TaskList = ({ setOpenModal, openModal, onClose }: ITaskList) => {
-  const { tasksList, searchTaskList } = useContext(TaskContext);
-
-  if (tasksList) {
+const TaskList = () => {
+  const { tasksList, openUpdateModal, closeModal, searchTaskList } =
+    useContext(TaskContext);
+  const { logout } = useContext(UserContext);
+  if (tasksList.length > 0) {
     return (
       <StyledUl>
+        <Modal isOpen={openUpdateModal} onClose={closeModal} />
         {searchTaskList.map((task) => (
-          <TaskItem
-            key={task.id}
-            name={task.name}
-            task={task}
-            setOpenModal={setOpenModal}
-            openModal={openModal}
-            onClose={onClose}
-          />
+          <TaskItem key={task.id} name={task.name} task={task} />
         ))}
       </StyledUl>
     );

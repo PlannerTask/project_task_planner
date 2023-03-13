@@ -26,7 +26,7 @@ export const DropMenuProfile = () => {
           <button
             className="logout-button"
             onClick={() => {
-              console.log('Logout');
+              logout()
             }}
           >
             Logout

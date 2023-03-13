@@ -1,47 +1,54 @@
-import React, { useContext } from 'react';
-import { ITask, ITaskUpdate } from '../../../../Providers/TaskContext/types';
-import PatchModal from '../../../Modal/PatchModal';
-import DeleteModal from '../../../Modal/DeleteModal';
-import { StyledLi } from './style';
-import { TaskContext } from '../../../../Providers/TaskContext';
+import React, { useContext } from "react";
+import { ITask } from "../../../../Providers/TaskContext/types";
+import { StyledLi } from "./style";
+import { TaskContext } from "../../../../Providers/TaskContext";
+import { GoGear } from "react-icons/go";
+import { RxTrash } from "react-icons/rx";
 
 interface ITaskProps {
   name: string;
   task: ITask;
-  setOpenModal: React.Dispatch<React.SetStateAction<true | null>>;
-  openModal: true | null;
-  onClose: () => void;
 }
 
-const TaskItem = ({
-  name,
-  task,
-  setOpenModal,
-  openModal,
-  onClose,
-}: ITaskProps) => {
+const TaskItem = ({ name, task }: ITaskProps) => {
   const { setTypesModal } = useContext(TaskContext);
+  const { showUpdateModal, tasksList } = useContext(TaskContext);
+
+  const idValidate = (idTask: string) => {
+    if (!!tasksList) {
+      const taskObject = tasksList.find(
+        (element: ITask) => element.id === idTask
+      );
+
+      if (taskObject) {
+        showUpdateModal(task, taskObject.id);
+      }
+    }
+  };
+
   return (
-    <StyledLi>
-      <p>{name}</p>
-      <button
-        onClick={() => {
-          setTypesModal('delete');
-          setOpenModal(true);
-        }}
-      >
-        -
-      </button>
-      <button
-        onClick={() => {
-          setTypesModal('patch');
-          setOpenModal(true);
-        }}
-      >
-        +
-      </button>
-      <DeleteModal isOpen={openModal} onClose={onClose} task={task} />
-      <PatchModal isOpen={openModal} onClose={onClose} task={task} />
+    <StyledLi onClick={() => idValidate(task.id)}>
+      <p className="taskName">{name}</p>
+      <div className="btnContainer">
+        <button
+          className="delete"
+          onClick={() => {
+            setTypesModal("delete");
+            idValidate(task.id);
+          }}
+        >
+          <RxTrash size={50} />
+        </button>
+        <button
+          className="patch"
+          onClick={() => {
+            setTypesModal("patch");
+            idValidate(task.id);
+          }}
+        >
+          <GoGear size={10} />
+        </button>
+      </div>
     </StyledLi>
   );
 };

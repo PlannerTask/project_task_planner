@@ -20,14 +20,14 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     try {
       setLoading(true);
       const response = await api.post('/login', data);
-      toast.success('Login feito com sucesso!');
+      toast.success('Login successful!');
       window.localStorage.clear();
       window.localStorage.setItem('@TOKEN', response.data.accessToken);
       window.localStorage.setItem('@ID', response.data.user.id);
       setUser(response.data.user);
       navigate('/dashboard');
     } catch (error) {
-      toast.error('Login Inválido');
+      toast.error('Invalid login');
       console.log(error);
     } finally {
       setLoading(false);
@@ -36,11 +36,11 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   const registerUser = async (data: IUser): Promise<void> => {
     try {
       const response = await api.post('/register', data);
-      toast.success('Cadastro feito com sucesso!');
+      toast.success('Registration successfully Complete!');
       setUser(response.data.user);
-      navigate('/');
+      navigate('/login');
     } catch (error) {
-      toast.error('Cadastro inválido');
+      toast.error('Invalid registration');
       console.log(error);
     }
   };
@@ -57,7 +57,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         setUser(response.data);
         navigate('/dashboard');
       } catch (error) {
-        toast.error('Faça login novamente');
+        toast.error('Please login again');
         console.log(error);
         localStorage.removeItem('@TOKEN');
         localStorage.removeItem('@ID');
@@ -73,6 +73,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     localStorage.removeItem('@ID');
     setUser(null);
     navigate('/');
+    toast.success('Log out successfully')
   };
   const updateProfile = async (data: IUpdateProfile) => {
     const token = localStorage.getItem('@TOKEN');
@@ -85,7 +86,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         
       });
       
-      console.log(response.data);
+      toast.success('Profile successfully updated')
       setUser(response.data)
     } catch (error) {
       console.log(error);

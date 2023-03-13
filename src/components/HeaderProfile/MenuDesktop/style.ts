@@ -10,6 +10,14 @@ export const StyledDesktopMenu = styled.div`
       a {
         font-size: var(--text-size-default);
         color: var(--color-grey-800);
+        
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &:focus {
+          text-decoration: underline;
+        }
       }
       .logout-button {
         display: flex;
@@ -17,16 +25,41 @@ export const StyledDesktopMenu = styled.div`
 
         width: 105px;
         height: 30px;
-
+        
         border: none;
         font-size: var(--text-size-default);
         border-radius: var(--radius-default);
         background: var(--color-grey-800);
 
+
         color: var(--color-white);
 
         cursor: pointer;
+
+        &:hover {
+          background-color: var(--color-grey-300);
+        }
       }
+    }
+  }
+
+  @media(min-width: 768px) {
+
+    .container-desktop-menu {
+
+      div {
+
+        a {
+            font-size: var(--title-size-2);
+            color: var(--color-grey-800);
+          }
+
+          .logout-button {
+            font-size: var(--title-size-2);
+            font-weight: 600;
+          }
+      }
+
     }
   }
 `;

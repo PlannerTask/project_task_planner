@@ -1,17 +1,21 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../../Providers/UserContext';
 import { StyledDesktopMenu } from './style';
 
-export const MenuDesktop = ()=>{
+export const MenuDesktop = () => {
+  const { logout } = useContext(UserContext);
+
   return (
     <StyledDesktopMenu>
       <div className="container-desktop-menu">
         <div>
-          <Link to={'/dashboard'}>Home</Link>
-          <Link to={'/profile'}>Account</Link>
+          <Link to='/dashboard'>Home</Link>
+          <Link to='/profile'>Account</Link>
           <button
             className="logout-button"
             onClick={() => {
-              console.log('Logout');
+              logout()
             }}
           >
             Logout

@@ -4,6 +4,7 @@ export const StyledFormLogin = styled.div`
 width:100%;
 display:flex;
 justify-content:center;
+
 form{
     width:226px;
     display:flex;
@@ -33,6 +34,8 @@ form{
         gap:25px;
         button{
             width:333px;
+            height: 42px;
+            font-size:var(--text-size-default);
         }
         
     }

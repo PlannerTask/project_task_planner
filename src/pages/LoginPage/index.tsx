@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { FormLogin } from "../../components/Form/FormLogin"
 import { HeaderLogin } from "../../components/HeaderLogin"
 import { StyledAsideLogin, StyledLoginPage } from "./style"
@@ -10,7 +11,7 @@ export const LoginPage =() =>{
                 <FormLogin/>
                 <div className='bottom__container'>
                     <p>Don't have an account yet ?</p>
-                    <button type='button'>Sign up</button>
+                    <Link to='/register'>Sign up</Link>
                 </div>
             </div>
             <StyledAsideLogin>

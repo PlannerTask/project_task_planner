@@ -16,6 +16,7 @@ const Search = () => {
   return (
     <StyledSearch
       onSubmit={(event) => {
+        
         submitSearch(event);
       }}
     >
