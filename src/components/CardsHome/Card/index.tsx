@@ -1,6 +1,10 @@
 import { StyledCard } from "./card"
 
-export const Card = ({img, children}:any) => {
+interface ICard {
+    img: string;
+    children: string;
+}
+export const Card = ({img, children}:ICard) => {
     return (
         <>
         <StyledCard>

@@ -24,6 +24,8 @@ export interface ITaskUpdate {
 export interface ITaskContext {
   showMenu: true | null;
   setShowMenu: React.Dispatch<React.SetStateAction<true | null>>;
+  showMenuHome: true | null;
+  setShowMenuHome: React.Dispatch<React.SetStateAction<true | null>>;
   tasksList: ITask[] | null;
   setTasksList: React.Dispatch<React.SetStateAction<ITask[]>>;
   createTask: (data: ITaskCreate) => Promise<void>;
