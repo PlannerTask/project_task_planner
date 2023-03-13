@@ -31,10 +31,11 @@ export const StyledDropMenu = styled.div`
 
       a {
         cursor: default;
-        font-size: var(--text-size-small);
+        font-size: var(--text-size-default);
         color: var(--color-grey-800);
       }
       .logout-button {
+        font-size: var(--text-size-default);
         color: var(--color-grey-800);
       }
     }

@@ -11,25 +11,26 @@ export const StyledHeaderProfile = styled.header`
   font-family: var(--font-text-default);
 
   background: var(--color-white);
-  .container-desktop-menu{
-    display:none;
+  .container-desktop-menu {
+    display: none;
   }
+
   nav {
     div {
       button {
-        display:flex;
-        align-items:center;
-        border:none;
-        background:none;
+        display: flex;
+        align-items: center;
+        border: none;
+        background: none;
       }
     }
   }
-  @media (min-width:768px) {
-    .container-menu-mobile{
-      display:none;
+  @media (min-width: 768px) {
+    .container-menu-mobile {
+      display: none;
     }
-    .container-desktop-menu{
-      display:flex;
+    .container-desktop-menu {
+      display: flex;
     }
   }
 `;
