@@ -8,7 +8,7 @@ export const StyledDesktopMenu = styled.div`
       gap: 76px;
 
       a {
-        font-size: var(--text-size-small);
+        font-size: var(--text-size-default);
         color: var(--color-grey-800);
         
         &:hover {
@@ -20,17 +20,19 @@ export const StyledDesktopMenu = styled.div`
         }
       }
       .logout-button {
-        display:flex;
-        justify-content:center;
+        display: flex;
+        justify-content: center;
 
         width: 105px;
         height: 30px;
+        
+        border: none;
+        font-size: var(--text-size-default);
+        border-radius: var(--radius-default);
+        background: var(--color-grey-800);
 
-        border:none;
-        border-radius:var(--radius-default);
-        background: var(--color-grey-600);
 
-        color:var(--color-white) ;
+        color: var(--color-white);
 
         cursor: pointer;
 
