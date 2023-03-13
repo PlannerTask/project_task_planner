@@ -61,7 +61,7 @@ align-items:center;
         }
         .bottom__container {
             width:100%;
-            gap:50px;
+            gap:31px;
                 a{
                     width:333px;
                     height: 42px;
