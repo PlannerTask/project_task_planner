@@ -36,8 +36,10 @@ export const FormRegister = () => {
 
            <Input label='Password' type='password' id='password' placeholder='Password' register={register('password')} text='Password'/> 
            <p>{errors.password?.message}</p>
-           <Input label='Confirm Password' type='password' id='confirmPassword' placeholder='Confirm Password' register={register('password')} text='Confirm Password'/> 
+
+           <Input label='Confirm Password' type='password' id='confirmPassword' placeholder='Confirm Password' register={register('confirmPassword')} text='Confirm Password'/> 
            <p>{errors.confirmPassword?.message}</p>
+
            <Input label='Image' type='text' id='img' placeholder='Url' register={register('img')} text='Image'/>
 
             <div className="button-sign-up">
