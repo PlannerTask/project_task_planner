@@ -20,7 +20,7 @@ const schema = yup.object({
 
 export const FormLogin = ()=>{
     const {loginUser} = useContext(UserContext);
-    const {register,handleSubmit} = useForm<IUser>({
+    const {register,handleSubmit, formState:{errors}} = useForm<IUser>({
         resolver:yupResolver(schema),
     });
     
@@ -40,6 +40,7 @@ export const FormLogin = ()=>{
             text='Email Address'
             id='email'
             register={register('email')} />
+            <p>{errors.email?.message}</p>
             <Input
             label='Password'
             type='password'
@@ -47,6 +48,7 @@ export const FormLogin = ()=>{
             text='Password'
             id='password'
             register={register('password')}/>
+            <p>{errors.password?.message}</p>
             <button type='submit'>Sign in</button>
             </form>
             

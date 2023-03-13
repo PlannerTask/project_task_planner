@@ -8,6 +8,7 @@ export interface IUser {
     name?: string;
     img?: string;
     url?:string;
+    confirmPassword?: string;
   }
   export interface IUpdateProfile {
     name: string;
