@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom"
 import { CardListHome } from "../../components/CardsHome"
 import Footer from "../../components/Footer"
-import { HeaderProfile } from "../../components/HeaderProfile"
+import { HeaderHome } from "../../components/HeaderHome"
 import { StyledHomePage } from "./home"
 
 export const HomePage = () => {
     return (
         <>
-            <HeaderProfile/>
+            <HeaderHome/>
             <StyledHomePage>
                 <div>
                     
