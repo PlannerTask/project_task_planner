@@ -72,6 +72,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   const logout = () => {
     localStorage.removeItem('@TOKEN');
     localStorage.removeItem('@ID');
+    setShowMenu(null);
     setUser(null);
     navigate('/');
     toast.success('Log out successfully');
