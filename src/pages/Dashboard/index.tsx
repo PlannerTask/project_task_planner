@@ -1,10 +1,9 @@
-import React from "react";
-import Footer from "../../components/Footer";
+import {Footer} from "../../components/Footer";
 import { HeaderProfile } from "../../components/HeaderProfile";
-import Search from "../../components/Search";
-import TaskBoard from "../../components/TaskBoard";
+import {Search} from "../../components/Search";
+import {TaskBoard} from "../../components/TaskBoard";
 
-const Dashboard = () => {
+export const Dashboard = () => {
   return (
     <>
       <HeaderProfile />
@@ -17,4 +16,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+

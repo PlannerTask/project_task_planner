@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { SubmitHandler } from "react-hook-form/dist/types";
 import { TaskContext } from "../../../Providers/TaskContext";
@@ -30,7 +30,7 @@ const schema = yup
   })
   .required();
 
-const index = ({ nameBtn, onClose, func, task }: IBodyModal) => {
+export const BodyFormModal = ({ nameBtn, onClose, func, task }: IBodyModal) => {
   const {
     register,
     handleSubmit,
@@ -93,4 +93,4 @@ const index = ({ nameBtn, onClose, func, task }: IBodyModal) => {
   );
 };
 
-export default index;
+

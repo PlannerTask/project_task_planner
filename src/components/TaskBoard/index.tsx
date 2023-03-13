@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import  { useContext } from "react";
 import { TaskContext } from "../../Providers/TaskContext";
 import { UserContext } from "../../Providers/UserContext";
-import CreateModal from "../Modal/CreateModal";
+import {CreateModal} from "../Modal/CreateModal";
 import { StyledDiv } from "./style";
-import TaskList from "./TaskList";
+import {TaskList} from "./TaskList";
 
-const TaskBoard = () => {
+export const TaskBoard = () => {
   const { user } = useContext(UserContext);
   const { showCreateModal, openCreateModal, closeModal } =
     useContext(TaskContext);
@@ -30,4 +30,4 @@ const TaskBoard = () => {
   );
 };
 
-export default TaskBoard;
+

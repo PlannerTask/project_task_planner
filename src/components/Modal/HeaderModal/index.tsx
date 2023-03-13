@@ -1,4 +1,3 @@
-import React from "react";
 import { StyledHeaderModal } from "./style";
 
 interface IModal {
@@ -6,7 +5,7 @@ interface IModal {
   onClose: () => void;
 }
 
-const index = ({ title, onClose }: IModal) => {
+export const HeaderModal = ({ title, onClose }: IModal) => {
   return (
     <StyledHeaderModal>
       <h1>{title}</h1>
@@ -15,4 +14,4 @@ const index = ({ title, onClose }: IModal) => {
   );
 };
 
-export default index;
+

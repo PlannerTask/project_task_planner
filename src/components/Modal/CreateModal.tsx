@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { TaskContext } from "../../Providers/TaskContext";
 import { StyledModal } from "./BackgroundModal/style";
-import BodyFormCreateModal from "./BodyFormCreateModal";
-import HeaderModal from "./HeaderModal";
+import {BodyFormCreateModal} from "./BodyFormCreateModal";
+import {HeaderModal} from "./HeaderModal";
 import { StyledDialog } from "./style";
 
 interface IModal {
@@ -10,7 +10,7 @@ interface IModal {
   onClose: () => void;
 }
 
-const CreateModal = ({ isOpen, onClose }: IModal) => {
+export const CreateModal = ({ isOpen, onClose }: IModal) => {
   const { typesModal } = useContext(TaskContext);
   if (!isOpen) {
     return null;
@@ -27,4 +27,4 @@ const CreateModal = ({ isOpen, onClose }: IModal) => {
   );
 };
 
-export default CreateModal;
+

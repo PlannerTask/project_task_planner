@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { TaskContext } from "../../Providers/TaskContext";
 import { DeleteModal } from "../TaskBoard/style";
 import { StyledModal } from "./BackgroundModal/style";
-import BodyFormModal from "./BodyFormUpdateModal";
-import BodyShowTask from "./BodyShowTask";
-import HeaderModal from "./HeaderModal";
-import HeaderShowTask from "./HeaderShowTask";
+import {BodyFormModal} from "./BodyFormUpdateModal";
+import {BodyShowTask} from "./BodyShowTask";
+import {HeaderModal} from "./HeaderModal";
+import {HeaderShowTask} from "./HeaderShowTask";
 import { StyledDialog } from "./style";
 
 interface IModal {
@@ -13,7 +13,7 @@ interface IModal {
   onClose: () => void;
 }
 
-const Modal = ({ isOpen, onClose }: IModal) => {
+export const Modal = ({ isOpen, onClose }: IModal) => {
   const { typesModal, deleteTask, taskSelected } = useContext(TaskContext);
   if (!isOpen) {
     return null;
@@ -78,4 +78,4 @@ const Modal = ({ isOpen, onClose }: IModal) => {
   );
 };
 
-export default Modal;
+
