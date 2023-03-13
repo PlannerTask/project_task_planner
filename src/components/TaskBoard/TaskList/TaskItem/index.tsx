@@ -3,6 +3,7 @@ import { ITask } from "../../../../Providers/TaskContext/types";
 import { StyledLi } from "./style";
 import { TaskContext } from "../../../../Providers/TaskContext";
 import { GoGear } from "react-icons/go";
+import { RxTrash } from "react-icons/rx";
 
 interface ITaskProps {
   name: string;
@@ -36,7 +37,7 @@ const TaskItem = ({ name, task }: ITaskProps) => {
             idValidate(task.id);
           }}
         >
-          -
+          <RxTrash size={50} />
         </button>
         <button
           className="patch"
@@ -45,7 +46,7 @@ const TaskItem = ({ name, task }: ITaskProps) => {
             idValidate(task.id);
           }}
         >
-          <GoGear size={8} />
+          <GoGear size={10} />
         </button>
       </div>
     </StyledLi>

@@ -12,7 +12,7 @@ export const StyledLi = styled.li`
   border-radius: 8px;
 
   &:hover {
-    background: var(--color-grey-300)
+    background: var(--color-grey-300);
   }
 
   .taskName {
@@ -35,20 +35,20 @@ export const StyledLi = styled.li`
   }
 
   .delete {
-    width: 14px;
-    height: 11px;
+    width: 20px;
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background: #ffffff;
+    background: var(--color-negative);
     border-radius: 4px;
     border: none;
   }
 
   .patch {
-    height: 14px;
-    width: 14px;
+    height: 20px;
+    width: 20px;
     display: flex;
     align-items: center;
     justify-content: center;

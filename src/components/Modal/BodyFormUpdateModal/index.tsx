@@ -37,6 +37,10 @@ const index = ({ nameBtn, onClose, func, task }: IBodyModal) => {
     formState: { errors },
   } = useForm<IFormModal>({
     resolver: yupResolver(schema),
+    defaultValues: {
+      name: task.name,
+      description: task.description,
+    },
   });
   const { createTask, updateTask, taskSelected } = useContext(TaskContext);
 
