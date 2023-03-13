@@ -1,19 +1,19 @@
 import { useContext } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import { TaskContext } from '../../../../Providers/TaskContext';
+import { UserContext } from '../../../../Providers/UserContext';
 import { StyledDropMenuHome } from './DropMenuHome';
 
 
 export const DropMenuHome = () => {
-  const { setShowMenuHome } = useContext(TaskContext);
+  const { setShowMenu } = useContext(UserContext);
 
   return (
     <StyledDropMenuHome>
       <button
         className="close-button-home"
         onClick={() => {
-          setShowMenuHome(null);
+          setShowMenu(null);
         }}
       >
         <AiOutlineClose />

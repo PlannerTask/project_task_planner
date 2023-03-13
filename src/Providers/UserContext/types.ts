@@ -25,5 +25,7 @@ export interface IUser {
     registerUser: (data: IUser) => Promise<void>;
     logout: () => void;
     updateProfile: (data: IUpdateProfile) => Promise<void>;
+    showMenu:true | null;
+    setShowMenu:React.Dispatch<React.SetStateAction<true | null>>;
   }
   

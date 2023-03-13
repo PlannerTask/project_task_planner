@@ -14,8 +14,6 @@ export const TaskContext = createContext<ITaskContext>({} as ITaskContext);
 
 export const TaskProvider = ({ children }: ITaskProviderProps) => {
   const [tasksList, setTasksList] = useState<ITask[]>([]);
-  const [showMenu, setShowMenu] = useState<true | null>(null);
-  const [showMenuHome, setShowMenuHome] = useState<true | null>(null);
   const [typesModal, setTypesModal] = useState("");
   const [taskSelected, setTaskSelected] = useState<ITask | null>(null);
   const [openUpdateModal, setOpenUpdateModal] = useState<boolean>(false);
@@ -133,8 +131,6 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
         createTask,
         updateTask,
         deleteTask,
-        showMenu,
-        setShowMenu,
         typesModal,
         setTypesModal,
         taskSelected,
@@ -150,8 +146,6 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
         searchValue,
         setSearchValue,
         searchTaskList,
-        showMenuHome, 
-        setShowMenuHome,
       }}
     >
       {children}

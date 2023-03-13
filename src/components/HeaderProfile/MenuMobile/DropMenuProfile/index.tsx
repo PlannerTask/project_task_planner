@@ -1,13 +1,11 @@
 import { useContext } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import { TaskContext } from '../../../../Providers/TaskContext';
 import { UserContext } from '../../../../Providers/UserContext';
 import { StyledDropMenu } from './style';
 
 export const DropMenuProfile = () => {
-  const { logout } = useContext(UserContext);
-  const { setShowMenu } = useContext(TaskContext);
+  const { logout,setShowMenu } = useContext(UserContext);
 
   return (
     <StyledDropMenu>
