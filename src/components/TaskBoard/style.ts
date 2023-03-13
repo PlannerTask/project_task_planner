@@ -7,7 +7,7 @@ export const StyledDiv = styled.div`
   justify-content: center;
 
   h2 {
-    margin-top: 69px;
+    margin: 69px 0px 14px 0px;
     font-family: "Inter";
     font-weight: 600;
     font-size: var(--title-size-2);
@@ -38,8 +38,8 @@ export const StyledDiv = styled.div`
     width: 11px;
     height: 11px;
 
-    background: #c5ff75;
-    border-radius: 8px;
+    background: var(--color-primary);
+    border-radius: 100px;
     border: none;
 
     display: flex;
@@ -47,6 +47,26 @@ export const StyledDiv = styled.div`
     justify-content: center;
 
     font-weight: 500;
+
+    &:hover {
+      background: var(--color-primary-hover);
+    }
+  }
+
+  @media(min-width: 768px){
+    h2 {
+      margin: 69px 0px 69px 0px;
+      font-size: var(--text-size-large);
+    }
+
+    h3 {
+      font-size: var(--text-size-medium);
+    }
+
+    .create {
+      width: 20px;
+      height: 20px;
+    }
   }
 `;
 
@@ -113,13 +133,17 @@ export const DeleteModal = styled.main`
     line-height: 17px;
 
     color: #ffffff;
+
+    &:hover {
+      background-color: var(--color-secondary);
+    }
   }
 
   .cancelBtn {
     width: 90px;
     height: 33px;
 
-    background: #252a34;
+    background-color: var(--color-grey-600);
     border-radius: 8px;
     border: none;
 
@@ -130,5 +154,10 @@ export const DeleteModal = styled.main`
     line-height: 17px;
 
     color: #ffffff;
+
+    &:hover {
+      background-color: var(--color-grey-300);
+    }
+
   }
 `;

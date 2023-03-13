@@ -5,7 +5,7 @@ export const HeaderRegister = () => {
     return (
         <StyledHeaderRegister>
             <div className="container-btn-back">
-                <Link to='/'>Back</Link>
+                <Link to='/login'>Back</Link>
             </div>
             <h1>Task Planner</h1>
             <h6>Create a new account</h6>

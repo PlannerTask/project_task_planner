@@ -5,7 +5,7 @@ import { UserContext } from '../../Providers/UserContext';
 import { StyledMain } from './style';
 export const ProfilePage = () => {
   const { user } = useContext(UserContext)
-  console.log(user)
+  
   return (
     <>
       <HeaderProfile />

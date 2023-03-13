@@ -28,7 +28,7 @@ export const StyledContainerRegister = styled.main`
     }
 .container-form-register {
     width: 405px;
-    height: 760px;
+    height: 796px;
     border: 1px solid var(--color-white);
     border-radius: 8px;
 };

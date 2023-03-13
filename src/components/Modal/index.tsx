@@ -3,7 +3,9 @@ import { TaskContext } from "../../Providers/TaskContext";
 import { DeleteModal } from "../TaskBoard/style";
 import { StyledModal } from "./BackgroundModal/style";
 import BodyFormModal from "./BodyFormUpdateModal";
+import BodyShowTask from "./BodyShowTask";
 import HeaderModal from "./HeaderModal";
+import HeaderShowTask from "./HeaderShowTask";
 import { StyledDialog } from "./style";
 
 interface IModal {
@@ -30,7 +32,7 @@ const Modal = ({ isOpen, onClose }: IModal) => {
         </StyledDialog>
       </div>
     );
-  } else if (!!taskSelected) {
+  } else if (!!taskSelected && typesModal === "delete") {
     return (
       <div>
         <StyledModal onClick={() => onClose()} />
@@ -65,7 +67,15 @@ const Modal = ({ isOpen, onClose }: IModal) => {
       </div>
     );
   }
-  return null;
+  return (
+    <div>
+      <StyledModal onClick={() => onClose()} />
+      <StyledDialog open>
+        <HeaderShowTask taskSelected={taskSelected?.name} onClose={onClose} />
+        <BodyShowTask taskSelected={taskSelected?.description} />
+      </StyledDialog>
+    </div>
+  );
 };
 
 export default Modal;

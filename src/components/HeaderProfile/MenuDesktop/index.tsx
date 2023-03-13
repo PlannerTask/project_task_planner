@@ -10,8 +10,8 @@ export const MenuDesktop = () => {
     <StyledDesktopMenu>
       <div className="container-desktop-menu">
         <div>
-          <Link to={'/dashboard'}>Home</Link>
-          <Link to={'/profile'}>Account</Link>
+          <Link to='/dashboard'>Home</Link>
+          <Link to='/profile'>Account</Link>
           <button
             className="logout-button"
             onClick={() => {

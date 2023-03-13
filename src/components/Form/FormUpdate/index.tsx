@@ -34,9 +34,9 @@ export const FormUpdate = () => {
           text={'Nome'}
           id={'name'}
           register={register('name')}
-        
-          
         />
+        <p className="error-message">{errors.name?.message}</p>
+
         <Input
           label={'email'}
           id={'email'}
@@ -44,8 +44,8 @@ export const FormUpdate = () => {
           placeholder={'Digite aqui seu email...'}
           text={'Email'}
           register={register('email')}
-        
         />
+        <p className="error-message">{errors.email?.message}</p>
         <Input
           label={'url'}
           id={'url'}
@@ -53,9 +53,7 @@ export const FormUpdate = () => {
           placeholder={'Url'}
           text={'Imagem'}
           register={register('url')}
-          
         />
-
         <button className="button-update">Save update</button>
       </form>
     </StyledDivForm>

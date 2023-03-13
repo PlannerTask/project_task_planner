@@ -48,7 +48,7 @@ align-items:center;
         align-items:center;
         gap:50px;
         height:100vh;
-        .form__container{
+        .form__container {
             display:flex;
             flex-direction:column;
             border:1px solid var(--color-white);
@@ -59,9 +59,9 @@ align-items:center;
             padding:20px;
             gap:40px;
         }
-        .bottom__container{
+        .bottom__container {
             width:100%;
-            gap:50px;
+            gap:31px;
                 a{
                     width:333px;
                     height: 42px;
@@ -76,6 +76,7 @@ display:none;
 @media (min-width: 769px) {
     display:block;
     height:100vh;
+    width: 297px;
     font-family:var(--font-text-default);
         .aside__container{
             display:flex;

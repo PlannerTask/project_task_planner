@@ -14,20 +14,21 @@ export const UserContext = createContext<IUserContext>({} as IUserContext);
 export const UserProvider = ({ children }: IUserProviderProps) => {
   const [user, setUser] = useState<IUser | null>(null);
   const [loading, setLoading] = useState(false);
+  const [showMenu, setShowMenu] = useState<true | null>(null);
   const navigate = useNavigate();
 
   const loginUser = async (data: IUser): Promise<void> => {
     try {
       setLoading(true);
       const response = await api.post('/login', data);
-      toast.success('Login feito com sucesso!');
+      toast.success('Login successful!');
       window.localStorage.clear();
       window.localStorage.setItem('@TOKEN', response.data.accessToken);
       window.localStorage.setItem('@ID', response.data.user.id);
       setUser(response.data.user);
       navigate('/dashboard');
     } catch (error) {
-      toast.error('Login Inválido');
+      toast.error('Invalid login');
       console.log(error);
     } finally {
       setLoading(false);
@@ -36,11 +37,11 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   const registerUser = async (data: IUser): Promise<void> => {
     try {
       const response = await api.post('/register', data);
-      toast.success('Cadastro feito com sucesso!');
+      toast.success('Registration successfully Complete!');
       setUser(response.data.user);
-      navigate('/');
+      navigate('/login');
     } catch (error) {
-      toast.error('Cadastro inválido');
+      toast.error('Invalid registration');
       console.log(error);
     }
   };
@@ -57,7 +58,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         setUser(response.data);
         navigate('/dashboard');
       } catch (error) {
-        toast.error('Faça login novamente');
+        toast.error('Please login again');
         console.log(error);
         localStorage.removeItem('@TOKEN');
         localStorage.removeItem('@ID');
@@ -71,8 +72,10 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   const logout = () => {
     localStorage.removeItem('@TOKEN');
     localStorage.removeItem('@ID');
+    setShowMenu(null);
     setUser(null);
     navigate('/');
+    toast.success('Log out successfully');
   };
   const updateProfile = async (data: IUpdateProfile) => {
     const token = localStorage.getItem('@TOKEN');
@@ -82,17 +85,26 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-        
       });
-      
-      console.log(response.data);
-      setUser(response.data)
+
+      toast.success('Profile successfully updated');
+      setUser(response.data);
     } catch (error) {
       console.log(error);
     }
   };
   return (
-    <UserContext.Provider value={{ user, loginUser, registerUser, logout, updateProfile }}>
+    <UserContext.Provider
+      value={{
+        user,
+        loginUser,
+        registerUser,
+        logout,
+        updateProfile,
+        showMenu,
+        setShowMenu,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

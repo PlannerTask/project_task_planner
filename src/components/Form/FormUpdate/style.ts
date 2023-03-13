@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledDivForm = styled.div`
- width: fit-content;
+  width: fit-content;
   height: 400px;
   form {
     display: flex;
@@ -10,23 +10,30 @@ export const StyledDivForm = styled.div`
     gap: 1.5rem;
   }
   .button-update {
-      margin-top:3rem;
-      height: 2rem;
-      width: 227px;
+    margin-top: 3rem;
+    height: 2rem;
+    width: 227px;
 
-      font-weight:500;
-      font-size:var(--text-size-small);
+    font-weight: 500;
+    font-size: var(--text-size-small);
 
-      background: var(--color-primary);
-      border: none;
-      border-radius: var(--radius-default);
-    
+    background: var(--color-primary);
+    border: none;
+    border-radius: var(--radius-default);
+
+    &:hover {
+      background-color: var(--color-primary-hover);
+    }
+  }
+  .error-message {
+    margin: -20px 0 0 0;
+    font-size: var(--text-size-small);
+    color: var(--color-negative);
   }
   @media (min-width: 768px) {
-    .button-update{
-      width:100%;
+    .button-update {
+      width: 100%;
+      height: 42px;
     }
-  
-    
   }
 `;

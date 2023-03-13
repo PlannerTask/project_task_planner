@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledLi = styled.li`
   width: 205px;
   height: 33px;
+  min-height: 33px;
 
   display: flex;
   align-items: center;
@@ -10,6 +11,10 @@ export const StyledLi = styled.li`
 
   background: var(--color-grey-600);
   border-radius: 8px;
+
+  &:hover {
+    background: var(--color-grey-300);
+  }
 
   .taskName {
     margin-left: 15px;
@@ -31,20 +36,20 @@ export const StyledLi = styled.li`
   }
 
   .delete {
-    width: 14px;
-    height: 11px;
+    width: 20px;
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background: #ffffff;
+    background: var(--color-negative);
     border-radius: 4px;
     border: none;
   }
 
   .patch {
-    height: 14px;
-    width: 14px;
+    height: 20px;
+    width: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,6 +62,8 @@ export const StyledLi = styled.li`
   @media (min-width: 769px) {
     width: 333px;
     height: 42px;
+    min-height: 42px;
+  
     .taskName {
       margin-left: 25px;
     }

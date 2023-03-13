@@ -11,6 +11,16 @@ form{
     flex-direction:column;
     padding-bottom:16px;  
     gap:20px;
+    p {
+    display:inline;
+    max-width: 200px;
+    font-family: "Inter";
+    font-weight: 500;
+    font-size: var(--title-size-3);
+    line-height: var(--text-size-default);
+
+    color: rgb(300, 1, 1);
+  }
     button{
         height:33px;
         width:100%;

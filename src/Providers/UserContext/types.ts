@@ -8,6 +8,7 @@ export interface IUser {
     name?: string;
     img?: string;
     url?:string;
+    confirmPassword?: string;
   }
   export interface IUpdateProfile {
     name: string;
@@ -25,5 +26,7 @@ export interface IUser {
     registerUser: (data: IUser) => Promise<void>;
     logout: () => void;
     updateProfile: (data: IUpdateProfile) => Promise<void>;
+    showMenu:true | null;
+    setShowMenu:React.Dispatch<React.SetStateAction<true | null>>;
   }
   

@@ -11,16 +11,16 @@ import { StyledFormLogin } from "./style";
 const schema = yup.object({
     email: yup
       .string()
-      .email('Insira um email válido')
-      .required('Email obrigatório'),
+      .email('Enter a valid email')
+      .required('Required email'),
     password: yup
       .string()
-      .required('Senha incorreta'),
+      .required('Incorrect password'),
   });
 
 export const FormLogin = ()=>{
     const {loginUser} = useContext(UserContext);
-    const {register,handleSubmit} = useForm<IUser>({
+    const {register,handleSubmit, formState:{errors}} = useForm<IUser>({
         resolver:yupResolver(schema),
     });
     
@@ -36,17 +36,19 @@ export const FormLogin = ()=>{
             <Input 
             label='Email Address'
             type='text' 
-            placeholder='Digite seu email'
+            placeholder='Email Address'
             text='Email Address'
             id='email'
             register={register('email')} />
+            <p>{errors.email?.message}</p>
             <Input
             label='Password'
             type='password'
-            placeholder='Dgite sua senha'
+            placeholder='Password'
             text='Password'
             id='password'
             register={register('password')}/>
+            <p>{errors.password?.message}</p>
             <button type='submit'>Sign in</button>
             </form>
             

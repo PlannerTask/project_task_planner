@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { TaskContext } from "../../../Providers/TaskContext";
-import { UserContext } from '../../../Providers/UserContext';
+import { UserContext } from "../../../Providers/UserContext";
 import Modal from "../../Modal";
 import NoTask from "./NoTask";
 import { StyledUl } from "./style";
@@ -12,14 +12,14 @@ interface ITaskList {
 }
 
 const TaskList = () => {
-  const { tasksList, openUpdateModal, closeModal,searchTaskList } = useContext(TaskContext);
+  const { tasksList, openUpdateModal, closeModal, searchTaskList } =
+    useContext(TaskContext);
   const { logout } = useContext(UserContext);
-  if (tasksList) {
-    console.log(searchTaskList)
+  if (tasksList.length > 0) {
     return (
       <StyledUl>
         <Modal isOpen={openUpdateModal} onClose={closeModal} />
-        {tasksList.map((task) => (
+        {searchTaskList.map((task) => (
           <TaskItem key={task.id} name={task.name} task={task} />
         ))}
       </StyledUl>

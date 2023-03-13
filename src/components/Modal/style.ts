@@ -4,10 +4,8 @@ export const StyledDialog = styled.dialog`
   padding: 0;
 
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  top: 20%;
+  right: 0%;
 
   min-width: 230px;
 

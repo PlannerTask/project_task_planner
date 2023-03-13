@@ -45,7 +45,7 @@ export const StyledFormModal = styled.form`
     font-size: var(--title-size-3);
     line-height: var(--title-size-2);
 
-    color: var(--color-grey-300);
+    color: var(--color-white);
   }
 
   textarea::placeholder {
@@ -75,6 +75,10 @@ export const StyledFormModal = styled.form`
     line-height: var(--text-size-default);
 
     color: var(--color-grey-800);
+
+    &:hover {
+      background-color: var(--color-primary-hover);
+    }
   }
 
   .cancel {
@@ -92,6 +96,10 @@ export const StyledFormModal = styled.form`
     line-height: var(--text-size-default);
 
     color: var(--color-white);
+
+    &:hover {
+      background: var(--color-grey-300);
+    }
   }
 
   @media (min-width: 769px) {
