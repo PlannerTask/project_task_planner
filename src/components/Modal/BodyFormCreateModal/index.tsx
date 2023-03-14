@@ -21,7 +21,7 @@ interface IFormModal {
 
 const schema = yup
   .object({
-    name: yup.string().max(22).required("The task Name field is required"),
+    name: yup.string().max(11).required("The task Name field is required"),
     description: yup
       .string()
       .required("The task Description field is required"),
@@ -86,5 +86,3 @@ export const BodyFormCreateModal = ({ nameBtn, onClose, func }: IBodyModal) => {
     </StyledFormModal>
   );
 };
-
-
