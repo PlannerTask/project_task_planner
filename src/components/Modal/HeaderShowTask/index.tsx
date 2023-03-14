@@ -1,4 +1,3 @@
-import React from "react";
 import { ShowTaskHeader } from "./style";
 
 interface IModal {
@@ -6,7 +5,7 @@ interface IModal {
   onClose: () => void;
 }
 
-const HeaderShowTask = ({ taskSelected, onClose }: IModal) => {
+export const HeaderShowTask = ({ taskSelected, onClose }: IModal) => {
   return (
     <ShowTaskHeader>
       <h3 className="TaskTitle">{taskSelected}</h3>
@@ -17,4 +16,4 @@ const HeaderShowTask = ({ taskSelected, onClose }: IModal) => {
   );
 };
 
-export default HeaderShowTask;
+

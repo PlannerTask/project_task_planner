@@ -1,17 +1,17 @@
 import React, { useContext } from "react";
 import { TaskContext } from "../../../Providers/TaskContext";
 import { UserContext } from "../../../Providers/UserContext";
-import Modal from "../../Modal";
-import NoTask from "./NoTask";
+import {Modal} from "../../Modal";
+import {NoTask} from "./NoTask";
 import { StyledUl } from "./style";
-import TaskItem from "./TaskItem";
+import {TaskItem} from "./TaskItem";
 
 interface ITaskList {
   openModal: boolean;
   onClose: () => void;
 }
 
-const TaskList = () => {
+export const TaskList = () => {
   const { tasksList, openUpdateModal, closeModal, searchTaskList } =
     useContext(TaskContext);
   const { logout } = useContext(UserContext);
@@ -29,4 +29,4 @@ const TaskList = () => {
   }
 };
 
-export default TaskList;
+

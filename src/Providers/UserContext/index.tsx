@@ -69,7 +69,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     userLoad();
   }, []);
 
-  const logout = () => {
+  const logout = ():void => {
     localStorage.removeItem('@TOKEN');
     localStorage.removeItem('@ID');
     setShowMenu(null);
@@ -77,7 +77,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     navigate('/');
     toast.success('Log out successfully');
   };
-  const updateProfile = async (data: IUpdateProfile) => {
+  const updateProfile = async (data: IUpdateProfile):Promise<void> => {
     const token = localStorage.getItem('@TOKEN');
     const id = localStorage.getItem('@ID');
     try {

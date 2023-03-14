@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { CardListHome } from "../../components/CardsHome"
-import Footer from "../../components/Footer"
+import {Footer} from "../../components/Footer"
 import { HeaderHome } from "../../components/HeaderHome"
 import { StyledHomePage } from "./home"
 

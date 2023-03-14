@@ -1,7 +1,6 @@
-import React from "react";
 import { StyledFooter } from "./style";
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <StyledFooter>
       <p>Task Planner @all rights reserved</p>
@@ -9,4 +8,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+
