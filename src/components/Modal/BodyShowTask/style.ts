@@ -23,7 +23,7 @@ export const MainShowTask = styled.main`
   .taskDescription {
     margin: 0 24px 11px 24px;
 
-    max-width: 213px;
+    word-wrap: break-word;
 
     font-family: "Inter";
     font-style: normal;

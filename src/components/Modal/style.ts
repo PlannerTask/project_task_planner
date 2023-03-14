@@ -7,7 +7,7 @@ export const StyledDialog = styled.dialog`
   top: 20%;
   right: 0%;
 
-  min-width: 230px;
+  min-width: 235px;
 
   background: var(--color-grey-800);
   border-radius: 8px;
