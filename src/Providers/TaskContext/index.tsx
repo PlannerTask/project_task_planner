@@ -77,10 +77,10 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
   };
 
   useEffect(() => {
-    if(tasksList.length>0){
+    
 
       readTask(id);  
-    }
+    
   }, []);
 
   const updateTask = async (data: ITaskUpdate, id: string):Promise<void> => {
