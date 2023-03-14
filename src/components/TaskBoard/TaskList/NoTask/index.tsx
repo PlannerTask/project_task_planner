@@ -1,7 +1,6 @@
-import React from "react";
 import { NoTaskDiv } from "./style";
 
-const NoTask = () => {
+export const NoTask = () => {
   return (
     <NoTaskDiv>
       <p>You dont have any tasks</p>
@@ -9,4 +8,3 @@ const NoTask = () => {
   );
 };
 
-export default NoTask;

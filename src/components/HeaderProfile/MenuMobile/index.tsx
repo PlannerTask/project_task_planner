@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext} from 'react';
 import { HiOutlineMenu } from 'react-icons/hi';
 import { UserContext } from '../../../Providers/UserContext';
 import { DropMenuProfile } from './DropMenuProfile';

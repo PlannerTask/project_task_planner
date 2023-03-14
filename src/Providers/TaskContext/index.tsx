@@ -1,7 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { api } from "../../services/api";
-import { IUser } from "../UserContext/types";
 import {
   ITask,
   ITaskContext,
@@ -25,7 +24,7 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
   const [searchValue, setSearchValue] = useState("");
 
   const searchTaskList = tasksList.filter((task) => {
-    if (task.name.includes(search)) {
+    if (task.name.toLowerCase().includes(search.toLowerCase())) {
       return task;
     } else if (search == "") {
       return tasksList;
@@ -49,7 +48,7 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
     setTaskSelected(null);
   };
 
-  const createTask = async (data: ITaskCreate) => {
+  const createTask = async (data: ITaskCreate):Promise<void> => {
     try {
       const response = await api.post("/tasks", data, {
         headers: {
@@ -64,7 +63,7 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
     readTask(id);
   };
 
-  const readTask = async (id: string | null) => {
+  const readTask = async (id: string | null):Promise<void> => {
     try {
       const response = await api.get(`/tasks?userId=${id}`, {
         headers: {
@@ -73,15 +72,18 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
       });
       setTasksList(response.data);
     } catch (error) {
-      console.log(error);
+      
     }
   };
 
   useEffect(() => {
-    readTask(id);
+    if(tasksList.length>0){
+
+      readTask(id);  
+    }
   }, []);
 
-  const updateTask = async (data: ITaskUpdate, id: string) => {
+  const updateTask = async (data: ITaskUpdate, id: string):Promise<void> => {
     const token = localStorage.getItem("@TOKEN");
 
     try {
@@ -105,7 +107,7 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
       console.log(error);
     }
   };
-  const deleteTask = async () => {
+  const deleteTask = async ():Promise<void> => {
     let taskId = taskSelected?.id;
 
     try {

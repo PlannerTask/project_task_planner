@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { ProfilePage } from './pages/ProfilePage';
 import { LoginPage } from './pages/LoginPage';
 import { TaskProvider } from './Providers/TaskContext';
-import Dashboard from './pages/Dashboard';
+import {Dashboard} from './pages/Dashboard';
 import { RegisterPage } from './pages/RegisterPage';
 import { ProtectedRoutes } from './pages/ProtectedRoutes';
 import { HomePage } from './pages/Home';

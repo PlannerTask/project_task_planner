@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { ITask } from "../../../../Providers/TaskContext/types";
 import { StyledLi } from "./style";
 import { TaskContext } from "../../../../Providers/TaskContext";
@@ -10,7 +10,7 @@ interface ITaskProps {
   task: ITask;
 }
 
-const TaskItem = ({ name, task }: ITaskProps) => {
+export const TaskItem = ({ name, task }: ITaskProps) => {
   const { setTypesModal } = useContext(TaskContext);
   const { showUpdateModal, tasksList } = useContext(TaskContext);
 
@@ -53,4 +53,4 @@ const TaskItem = ({ name, task }: ITaskProps) => {
   );
 };
 
-export default TaskItem;
+

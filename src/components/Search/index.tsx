@@ -1,9 +1,9 @@
-import React, { FormEvent, useContext } from 'react';
+import { FormEvent, useContext } from 'react';
 import { ImSearch } from 'react-icons/im';
 import { TaskContext } from '../../Providers/TaskContext';
 import { StyledSearch } from './style';
 
-const Search = () => {
+export const Search = () => {
   const { setSearchValue, setSearch, searchValue } = useContext(TaskContext);
 
   const submitSearch = (event: FormEvent<HTMLFormElement>) => {
@@ -32,4 +32,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+
