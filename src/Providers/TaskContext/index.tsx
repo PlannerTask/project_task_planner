@@ -55,9 +55,9 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      toast.success("Task created successfully");
+      toast.success("Task created successfully.");
     } catch (error) {
-      toast.error("Unable to create task");
+      toast.error("Unable to create task.");
       console.log(error);
     }
     readTask(id);
@@ -100,10 +100,10 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
           return task;
         }
       });
-      toast.success("Job updated successfully");
+      toast.success("Job updated successfully.");
       setTasksList(newTask as []);
     } catch (error) {
-      toast.error("Error updating task");
+      toast.error("Error updating task.");
       console.log(error);
     }
   };
@@ -117,10 +117,10 @@ export const TaskProvider = ({ children }: ITaskProviderProps) => {
         },
       });
       const removeTask = tasksList.filter((task) => taskId != task.id);
-      toast.success("successfully deleted task");
+      toast.success("successfully deleted task.");
       setTasksList(removeTask);
     } catch (error) {
-      toast.error("Error deleting task");
+      toast.error("Error deleting task.");
       console.log(error);
     }
   };
